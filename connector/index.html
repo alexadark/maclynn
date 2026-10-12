@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maclynn Connector Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #f6f5f9; --surface: #ffffff; --ink: #1e1b2e; --muted: #625e75; --line: #e2e0ea;
+  --accent: #a3355a; --accent-soft: #f6e6ec; --ok: #1f7a4d; --ok-soft: #e3f3ea;
+  --stop: #8a2f2f; --stop-soft: #f7e5e3; --sm: #2f5d8a; --sm-soft: #e7eef6;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15131d; --surface: #1f1c2a; --ink: #eeecf5; --muted: #a29eb5; --line: #332f42;
+    --accent: #e07a9c; --accent-soft: #3a2230; --ok: #6fd3a0; --ok-soft: #1d3329;
+    --stop: #f09a8f; --stop-soft: #3a2524; --sm: #8fb6e0; --sm-soft: #1f2a38; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15131d; --surface: #1f1c2a; --ink: #eeecf5; --muted: #a29eb5; --line: #332f42;
+  --accent: #e07a9c; --accent-soft: #3a2230; --ok: #6fd3a0; --ok-soft: #1d3329;
+  --stop: #f09a8f; --stop-soft: #3a2524; --sm: #8fb6e0; --sm-soft: #1f2a38; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); }
+main { max-width: 860px; margin: 0 auto; padding: 40px 16px 64px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.2; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); letter-spacing: -0.01em; }
+h2 { font-size: 1.35rem; margin-bottom: 12px; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+.lede { color: var(--muted); font-size: 1.1rem; max-width: 62ch; margin-top: 10px; }
+.kicker { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; }
+.box { border-radius: 12px; padding: 14px; display: grid; gap: 4px; }
+.box strong { font-family: var(--display); }
+.box span { font-size: 0.9rem; color: var(--muted); }
+.b1 { background: var(--sm-soft); } .b2 { background: var(--ok-soft); } .b3 { background: var(--accent-soft); }
+.arrow { align-self: center; color: var(--muted); font-size: 1.3rem; }
+@media (max-width: 680px) { .flow { grid-template-columns: 1fr; } .arrow { justify-self: center; transform: rotate(90deg); } }
+ul, ol { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.rules { list-style: none; padding: 0; display: grid; gap: 10px; }
+.rules li { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+.badge { font-size: 0.75rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; white-space: nowrap; margin-top: 3px; }
+.badge.ok { background: var(--ok-soft); color: var(--ok); }
+.badge.stop { background: var(--stop-soft); color: var(--stop); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { text-align: left; padding: 9px 10px; border-top: 1px solid var(--line); vertical-align: top; }
+th { border-top: 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 12px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+.steps li::before { content: counter(s); width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font: 700 0.9rem var(--display); }
+.steps .say { color: var(--muted); font-style: italic; }
+.next { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.next div { border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 4px; }
+.next .tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+.note { font-size: 0.88rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="kicker">Maclynn · SmartMatch to GoHighLevel</div>
+    <h1>The Maclynn Connector</h1>
+    <p class="lede">Keep working in SmartMatch. The connector keeps GoHighLevel up to date, so campaigns always reach the right members, and never reach someone who said no.</p>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="flow" role="img" aria-label="SmartMatch to connector to GoHighLevel">
+      <div class="box b1"><strong>SmartMatch</strong><span>The team updates a member's profile as usual.</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box b2"><strong>Connector</strong><span>Notices the change and checks what the member agreed to.</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box b3"><strong>GoHighLevel</strong><span>The contact is created or updated. Campaigns use the latest details.</span></div>
+    </div>
+    <p class="note" style="margin-top:12px">No copying, no spreadsheets, no double entry. Nobody needs to open GoHighLevel to keep it in step.</p>
+  </section>
+
+  <section>
+    <h2>What moves across</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>In SmartMatch</th><th>In GoHighLevel</th></tr></thead>
+        <tbody>
+          <tr><td>First name, last name, email, city</td><td>The contact's details</td></tr>
+          <tr><td>Would you like to receive marketing emails?</td><td>SmartMatch Email Marketing, and whether email is open</td></tr>
+          <tr><td>Would you like to be part of Cupid Club?</td><td>SmartMatch Cupid Club</td></tr>
+          <tr><td>Which type of events interest you most?</td><td>SmartMatch Event Types</td></tr>
+          <tr><td>Profile status</td><td>SmartMatch Profile Status</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:12px">Private matchmaking details (income, notes, preferences about partners) stay in SmartMatch.</p>
+  </section>
+
+  <section>
+    <h2>The rules it always follows</h2>
+    <ul class="rules">
+      <li><span class="badge ok">Email</span><span>Email is open only when the member said yes to marketing emails.</span></li>
+      <li><span class="badge stop">Unsubscribe</span><span>When a member says no, every channel is blocked in GoHighLevel straight away, even for a campaign already scheduled.</span></li>
+      <li><span class="badge stop">Never reopens</span><span>The connector never reopens a channel a member closed. Only the team can, after checking with the member.</span></li>
+      <li><span class="badge stop">SMS · WhatsApp · Calls</span><span>Always blocked, because members have not agreed to them.</span></li>
+      <li><span class="badge ok">One contact</span><span>Each member has one contact in GoHighLevel, linked by their SmartMatch number. No duplicates.</span></li>
+      <li><span class="badge stop">When unsure</span><span>If anything looks wrong, the connector blocks and waits for the team rather than guessing.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Today's live demo</h2>
+    <p class="note" style="margin-bottom:14px">Three test members in the real SmartMatch, linked to the real GoHighLevel. No real member is touched.</p>
+    <ol class="steps">
+      <li><div><h3>Meet the test member</h3><p>Open "TEST Connector Two" in SmartMatch: newsletter Yes, Manchester, Intimate dinner parties.</p><p class="say">"This is how a member looks in SmartMatch today."</p></div></li>
+      <li><div><h3>Find her in GoHighLevel</h3><p>Same details, created by the connector. Email open, every other channel blocked.</p><p class="say">"Nobody typed this. The connector created it."</p></div></li>
+      <li><div><h3>Change a detail</h3><p>Change her city or event interests in SmartMatch and save. Refresh GoHighLevel after about 20 seconds.</p><p class="say">"Update SmartMatch, and GoHighLevel follows."</p></div></li>
+      <li><div><h3>She unsubscribes</h3><p>Set the newsletter to No in SmartMatch. Refresh GoHighLevel: the contact is now Do Not Disturb.</p><p class="say">"From now on, no campaign can reach her. That protects members and Maclynn."</p></div></li>
+      <li><div><h3>Questions</h3><p>What else should move across? Who should see the connector's status?</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What comes next</h2>
+    <div class="next">
+      <div><span class="tag">Next</span><strong>Always on</strong><p class="note">The connector runs on Maclynn's own server, day and night.</p></div>
+      <div><span class="tag">Then</span><strong>Team access</strong><p class="note">Matchmakers sign in with their Maclynn email and see that everything is in step.</p></div>
+      <div><span class="tag">Then</span><strong>Real members</strong><p class="note">A small group first, checked together, then every member.</p></div>
+    </div>
+    <p class="note" style="margin-top:12px">Going live with real members needs Maclynn's written go-ahead.</p>
+  </section>
+</main>
+</body>
+</html>
