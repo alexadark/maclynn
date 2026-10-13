@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The New Sales Workflow</title>
+<style>
+  :root { --ink:#2b2621; --muted:#6b6257; --gold:#a8874f; --cream:#f8f3ea; --line:#e4d9c6; --warn:#8c3b2f; --ok:#3d6b3a; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.6; background:#fff; margin:0 auto; max-width: 760px; padding: 24px 16px 56px; font-size: 17px; }
+  h1 { font-size: 34px; font-weight: normal; margin: 0 0 8px; line-height: 1.2; }
+  h2 { font-size: 22px; font-weight: normal; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 40px 0 14px; }
+  h3 { font-size: 16px; margin: 22px 0 6px; color: var(--gold); }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+  .cover { background: var(--cream); padding: 30px 26px; border-left: 4px solid var(--gold); margin-bottom: 20px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--gold); margin-bottom: 10px; }
+  .sub { color: var(--muted); font-size: 17px; margin: 0; }
+  .lede { font-size: 19px; }
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 18px; font-size: 15px; }
+  .flow span.step { background: var(--cream); border: 1px solid var(--line); padding: 6px 10px; }
+  .flow span.arrow { color: var(--gold); }
+  .phase { margin: 26px 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); }
+  .steps { list-style: none; padding: 0; margin: 0 0 8px; }
+  .steps li { background: var(--cream); border: 1px solid var(--line); padding: 12px 16px; margin-bottom: 10px; }
+  .steps li h3 { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: normal; }
+  .steps li h3 .num { color: var(--gold); }
+  .who { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 4px; }
+  .steps li p { margin: 0; }
+  .steps li p + p { margin-top: 6px; }
+  .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
+  .table-wrap { overflow-x: auto; margin: 10px 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+  th { text-align: left; background: var(--cream); border-bottom: 1px solid var(--gold); padding: 7px 8px; }
+  td { border-bottom: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+  .small { font-size: 14px; color: var(--muted); }
+  .back { font-size: 14px; margin-bottom: 18px; }
+</style>
+</head>
+<body>
+<p class="back"><a href="../">All Maclynn documents</a></p>
+<div class="cover">
+  <div class="eyebrow">Maclynn International · October 2026</div>
+  <h1>The new sales workflow</h1>
+  <p class="sub">From the first conversation with a lead to a signed Private Membership Agreement, with Claude doing the typing and the team keeping the judgement. This replaces PandaDoc before 8 November. Prepared by Alexandra Spalato for Rachel, Alexa and Tori.</p>
+</div>
+
+<p class="lede">Today a proposal takes Tori between fifteen minutes and an hour and a half. She writes notes by hand, photographs them, types them up with ChatGPT, then fills in PandaDoc. Some meetings never get written up at all.</p>
+<p>Rachel has already shown the better way. Last week she turned Tori's long letter into a short, beautiful proposal with Claude, and once the client asked for changes, turned it into the full agreement. This workflow makes that the normal route for every client, without the back and forth.</p>
+
+<div class="flow">
+  <span class="step">Conversation</span><span class="arrow">→</span>
+  <span class="step">Notes</span><span class="arrow">→</span>
+  <span class="step">Proposal</span><span class="arrow">→</span>
+  <span class="step">Client's changes</span><span class="arrow">→</span>
+  <span class="step">Agreement</span><span class="arrow">→</span>
+  <span class="step">Signature</span><span class="arrow">→</span>
+  <span class="step">New member</span>
+</div>
+
+<h2>Step by step</h2>
+
+<div class="phase">Before and during the meeting</div>
+<ol class="steps">
+  <li><div class="who">Tori, in GoHighLevel</div><h3><span class="num">1.</span> NDA before the meeting</h3><p>The NDA never changes, so it stays a simple template in GoHighLevel, one per company (UK and US). Tori sends it from the lead's contact page.</p></li>
+  <li><div class="who">Tori and the note-taker</div><h3><span class="num">2.</span> The conversation is captured</h3><p>With the lead's permission, Granola or Plaud transcribes the meeting: face to face, on Zoom or Teams, or on WhatsApp. If the lead says no, Tori takes notes by hand as today. Her personal impressions stay handwritten either way. <a href="../notetakers/">Choosing a note-taker</a> compares the two tools and covers consent.</p></li>
+</ol>
+
+<div class="phase">After the meeting</div>
+<ol class="steps">
+  <li><div class="who">Claude</div><h3><span class="num">3.</span> Notes in Tori's format</h3><p>Tori asks Claude for her notes. Claude reads the transcript through the note-taker's connector and writes the notes in the format Tori already uses: career, background, relationships, what the client is looking for. It also pulls out the deal points: length, fee, dates, anything special.</p><p>The notes are filed on the contact in GoHighLevel. The profile details can later feed SmartMatch, so nobody types them twice.</p></li>
+  <li><div class="who">Claude</div><h3><span class="num">4.</span> A draft proposal</h3><p>Claude drafts the proposal from the notes, in Rachel's design and Maclynn's tone of voice. There can be versions for men and for women. Rachel can keep improving the design, and every salesperson gets the new version straight away.</p></li>
+  <li><div class="who">Tori</div><h3><span class="num">5.</span> Review and send</h3><p>Tori reads the draft and asks Claude for any change in plain words: "make this box bigger", "add the Christmas hold". She sends the PDF to the client by email from GoHighLevel, so it stays on the contact's record.</p></li>
+  <li><div class="who">Client and Tori</div><h3><span class="num">6.</span> The client's changes</h3><p>If the client wants something different, Tori pastes the points into Claude and gets an updated proposal. This repeats until the client is happy.</p></li>
+</ol>
+
+<div class="phase">Contract and signature</div>
+<ol class="steps">
+  <li><div class="who">Claude</div><h3><span class="num">7.</span> The Private Membership Agreement</h3><p>Claude turns the agreed proposal into the formal agreement, combining the personal pages with the terms and conditions. The terms and conditions are locked: Claude never rewrites them. Only the personal parts change: introductions, length, fee, timeline, contact details.</p></li>
+  <li><div class="who">Claude, then Tori or Rachel</div><h3><span class="num">8.</span> A final check</h3><p>Claude compares the agreement with Maclynn's standard terms and flags anything that differs. Tori reads it. If a clause goes beyond the standard, Rachel approves it.</p></li>
+  <li><div class="who">Claude and BoldSign</div><h3><span class="num">9.</span> Signature</h3><p>Claude sends the agreement for signature through BoldSign, with the signature boxes already in place. The client signs on a computer or a phone. <a href="../signature/">Signing contracts without PandaDoc</a> explains how this works and why we chose BoldSign.</p></li>
+  <li><div class="who">Automatic</div><h3><span class="num">10.</span> A new member</h3><p>Once signed, GoHighLevel updates itself: the opportunity is marked as won, the signed PDF is attached to the contact and the matchmaker gets a task. Payment at signing can be added if Maclynn wants it. The new member then moves into SmartMatch.</p></li>
+</ol>
+
+<h2>Who does what</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Who</th><th>Their part</th></tr></thead>
+  <tbody>
+    <tr><td>Tori and the sales team</td><td>Hold the conversation, ask for consent, read every draft, decide what goes to the client.</td></tr>
+    <tr><td>Rachel</td><td>Owns the design, the brand and the terms and conditions. Approves anything outside the standard.</td></tr>
+    <tr><td>Claude</td><td>Writes the notes, the proposal and the agreement, checks the terms, sends for signature.</td></tr>
+    <tr><td>GoHighLevel</td><td>Keeps the contact, the notes, the emails and the signed contract.</td></tr>
+    <tr><td>Alexandra</td><td>Builds and connects everything, tests it with Alexa, then trains the team.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>How it's set up in Claude</h2>
+<ul>
+  <li><b>Brand guidelines for everyone.</b> Rachel's brand and tone of voice become a shared guide in Claude, so every document sounds and looks like Maclynn.</li>
+  <li><b>A sales toolkit.</b> Three ready-made helpers for the sales team: one for the notes, one for the proposal, one for the agreement. They're improved once and shared with everyone.</li>
+  <li><b>Connections.</b> Claude connects to the note-taker, to GoHighLevel and to BoldSign, so nobody copies anything between tools.</li>
+</ul>
+<p class="note">The team stays on ChatGPT for a week or two while Rachel finishes the brand guidelines. The sales workflow moves to Claude first, because PandaDoc renews on 8 November.</p>
+
+<h2>What we need from the team</h2>
+<ul>
+  <li><b>Rachel:</b> the latest proposal and agreement drafts, the updated terms and conditions, and the brand guidelines.</li>
+  <li><b>Tori:</b> a short session with Alexandra on how she takes notes and what she wants from them, and her current note prompt.</li>
+  <li><b>Alexa:</b> the PandaDoc notice period, and who signs for Maclynn.</li>
+  <li><b>Everyone:</b> should payment be taken at signing?</li>
+</ul>
+
+<h2>Timeline to 8 November</h2>
+<ul>
+  <li><b>This week:</b> drafts and terms from Rachel, session with Tori, note-taker chosen, signature test.</li>
+  <li><b>Week of 19 October:</b> the sales toolkit built, a full test with Alexa on a pretend client. Rachel decides on 23 October.</li>
+  <li><b>Week of 26 October:</b> first real clients with Tori, with their consent.</li>
+  <li><b>Before 8 November:</b> PandaDoc cancelled within its notice period, and every signed contract exported first.</li>
+</ul>
+
+<p class="small">Prepared by Alexandra Spalato · 13 October 2026</p>
+</body>
+</html>
