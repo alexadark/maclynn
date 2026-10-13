@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signing Contracts Without PandaDoc</title>
+<style>
+  :root { --ink:#2b2621; --muted:#6b6257; --gold:#a8874f; --cream:#f8f3ea; --line:#e4d9c6; --warn:#8c3b2f; --ok:#3d6b3a; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.6; background:#fff; margin:0 auto; max-width: 760px; padding: 24px 16px 56px; font-size: 17px; }
+  h1 { font-size: 34px; font-weight: normal; margin: 0 0 8px; line-height: 1.2; }
+  h2 { font-size: 22px; font-weight: normal; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 40px 0 14px; }
+  h3 { font-size: 16px; margin: 22px 0 6px; color: var(--gold); }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+  .cover { background: var(--cream); padding: 30px 26px; border-left: 4px solid var(--gold); margin-bottom: 20px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--gold); margin-bottom: 10px; }
+  .sub { color: var(--muted); font-size: 17px; margin: 0; }
+  .lede { font-size: 19px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 18px; }
+  @media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--cream); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px; }
+  .card .n { font-size: 26px; display: block; }
+  .card p { margin: 0; font-size: 15px; color: var(--muted); }
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--cream); border: 1px solid var(--line); padding: 12px 16px; margin-bottom: 10px; }
+  .steps li h3 { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: normal; }
+  .steps li h3::before { content: counter(s) ". "; color: var(--gold); }
+  .who { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 4px; }
+  .steps li p { margin: 0; }
+  .table-wrap { overflow-x: auto; margin: 10px 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+  th { text-align: left; background: var(--cream); border-bottom: 1px solid var(--gold); padding: 7px 8px; }
+  td { border-bottom: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+  .yes { color: var(--ok); }
+  .no { color: var(--warn); }
+  .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
+  .small { font-size: 14px; color: var(--muted); }
+  .back { font-size: 14px; margin-bottom: 18px; }
+</style>
+</head>
+<body>
+<p class="back"><a href="../">All Maclynn documents</a></p>
+<div class="cover">
+  <div class="eyebrow">Maclynn International · October 2026</div>
+  <h1>Signing contracts without PandaDoc</h1>
+  <p class="sub">How the Private Membership Agreement will go from Claude to the client's signature and back into GoHighLevel, with nobody placing signature boxes by hand. And why we chose this setup. Prepared by Alexandra Spalato for Rachel, Alexa and Tori.</p>
+</div>
+
+<div class="cards">
+  <div class="card"><span class="n">8 Nov</span><p>PandaDoc renewal we want to avoid</p></div>
+  <div class="card"><span class="n">~$360</span><p>A year with BoldSign, against £2.2k to £2.5k for PandaDoc</p></div>
+  <div class="card"><span class="n">0</span><p>Signature boxes to drag into place</p></div>
+</div>
+
+<p class="lede">Claude prepares the agreement. BoldSign collects the signature. GoHighLevel receives the signed contract. Tori stays in Claude from start to finish.</p>
+
+<h2>Why change</h2>
+<ul>
+  <li>PandaDoc costs a lot for how we use it: about 800 of the 1,800 credits we pay for get used.</li>
+  <li>The template is locked. Only a few fields can change, while Rachel wants a free, personal design for each client.</li>
+  <li>The Monday integration doesn't fill every field, so Alexa and Tori finish documents by hand.</li>
+  <li>Rachel has already proven the new format with Claude: a short, beautiful proposal first, then the full agreement once the terms are agreed.</li>
+</ul>
+
+<h2>Why not GoHighLevel's own signing</h2>
+<p>We tested it on Rachel's draft agreement. GoHighLevel imports the PDF perfectly, design intact, and a signature box can be added on page 7.</p>
+<ul>
+  <li>Signature boxes can only be dragged in by hand, and that has to be done again for every contract.</li>
+  <li>The editor ignores the boxes until all 16 pages have loaded, which takes around twenty seconds. It's easy to think it's broken.</li>
+  <li>GoHighLevel's API can't create a document or place the boxes, so Claude can't do it for us.</li>
+</ul>
+<p class="note">GoHighLevel stays the CRM and still receives every signed contract. Only the signing step moves to a specialist tool.</p>
+
+<h2>How it will work</h2>
+<ol class="steps">
+  <li><div class="who">Tori and Claude</div><h3>Claude prepares the agreement</h3><p>From the approved proposal and the terms agreed with the client, Claude writes the Private Membership Agreement. The terms and conditions never change. Tori reads it and asks for any tweaks in the chat.</p></li>
+  <li><div class="who">Claude and BoldSign</div><h3>Claude sends it for signature</h3><p>Claude sends the final PDF to BoldSign with the position of each box: the client's signature and date on page 7, and Maclynn's countersignature if we keep one. Nobody drags anything.</p></li>
+  <li><div class="who">The client</div><h3>The client signs</h3><p>They get an email in Maclynn's colours, open the link and sign on a computer or a phone. BoldSign keeps the evidence: time stamps, IP address and a signing certificate.</p></li>
+  <li><div class="who">Tori or Rachel</div><h3>Maclynn countersigns</h3><p>If we keep a countersignature, it goes out automatically once the client has signed, in the order we set.</p></li>
+  <li><div class="who">Connector and GoHighLevel</div><h3>GoHighLevel updates itself</h3><p>As soon as the contract is signed, BoldSign tells our connector. The connector marks the opportunity as won, attaches the signed PDF to the contact and creates the matchmaker's task.</p></li>
+  <li><div class="who">Tori and Claude</div><h3>Follow-up from Claude</h3><p>Tori can ask Claude where a contract stands, send a reminder or find a signed PDF, without opening BoldSign.</p></li>
+</ol>
+
+<h2>Why BoldSign</h2>
+<p>We picked the most practical option. Data location didn't decide it, since GoHighLevel already sits in the US.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Option</th><th>Run from Claude</th><th>Cost for about 25 contracts a month</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr><td>BoldSign</td><td class="yes">Yes. Official Claude connector and a simple API. Boxes placed by position or by hidden tags in the PDF. Instant notice when signed.</td><td>$30 a month for 40 contracts</td><td>Chosen</td></tr>
+    <tr><td>SignWell</td><td class="yes">Yes, through its API, without a Claude connector</td><td>25 contracts a month free, then about $0.85 each</td><td>Cheapest fallback</td></tr>
+    <tr><td>Documenso</td><td class="yes">Yes, through its API</td><td>$480 a year</td><td>Possible, costs more</td></tr>
+    <tr><td>GoHighLevel signing</td><td class="no">No. Boxes dragged in by hand for every contract</td><td>Included</td><td>Ruled out</td></tr>
+    <tr><td>PandaDoc</td><td class="no">Partly</td><td>£2.2k to £2.5k a year</td><td>To cancel</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small">Prices read on each provider's website on 13 October 2026. We'll confirm them before subscribing.</p>
+
+<h2>What we still need to settle</h2>
+<ul>
+  <li><b>Where the signature sits.</b> Today's PDFs are pure images, so the boxes are placed by position, and the signing page has to stay in the same place. Once Claude builds the PDF itself, hidden tags will mark the boxes and the design can move freely.</li>
+  <li><b>Countersignature and payment.</b> Who signs for Maclynn, and is payment taken at signing?</li>
+  <li><b>Legal check.</b> Maclynn's lawyer should confirm that a standard electronic signature is enough for this agreement.</li>
+  <li><b>PandaDoc archive.</b> Export every signed contract before the subscription ends.</li>
+</ul>
+
+<h2>Next steps</h2>
+<ol>
+  <li>Open a BoldSign test account and send a test agreement to Alexandra's own address.</li>
+  <li>Check that the signed contract lands in GoHighLevel on its own.</li>
+  <li>Run a full trial with Alexa, then Rachel decides before 23 October.</li>
+  <li>Subscribe to BoldSign and cancel PandaDoc before 8 November, within the notice period.</li>
+</ol>
+
+<p class="small">Prepared by Alexandra Spalato · 13 October 2026</p>
+</body>
+</html>
