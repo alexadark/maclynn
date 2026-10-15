@@ -115,7 +115,50 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
         </tbody>
       </table>
     </div>
-    <p class="note" style="margin-top:12px">Everything else stays in SmartMatch: income, notes, partner preferences, private matchmaking details. More fields can be switched on later in the console (date of birth, occupation and others), after a decision with Alexandra.</p>
+    <p class="note" style="margin-top:12px">These eight are on today. The next section lists every other field, what it would do, and why some never come back from GoHighLevel.</p>
+  </section>
+
+  <section>
+    <h2>Every field you can choose</h2>
+    <p style="margin-bottom:14px">The eight fields above are on today: Mia's short list, agreed at the start. Other fields can be switched on in the console, under Fields. Switching one on sends it to GoHighLevel for all 13 contacts, the 10 real members included, so it is a decision to take with Alexandra first. Switching it off later stops future updates but does not remove what was already sent. A field that is off is not synced at all, so there is nothing to test on it.</p>
+    <h3 style="margin-bottom:8px">Both ways, once switched on</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Field</th><th>Kind</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Middle name, Occupation</td><td>Text</td><td>Not sensitive</td></tr>
+          <tr><td>Date of birth</td><td>Date</td><td>Sensitive</td></tr>
+          <tr><td>Ambassador status, Employment status, Profile matchability</td><td>Choice</td><td>Not sensitive</td></tr>
+          <tr><td>Gender, Relationship status, Children, Desire for more children, Estimated wealth</td><td>Choice</td><td>Sensitive: switch on only for a clear business use</td></tr>
+          <tr><td>Singles events</td><td>Yes / No</td><td>A consent: only a No comes back from GoHighLevel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:8px">For a choice field edited in GoHighLevel, the text must be exactly one of SmartMatch's answers, spelled the same. Otherwise nothing is written and the console shows the problem.</p>
+    <h3 style="margin:22px 0 8px">SmartMatch to GoHighLevel only, and why</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Field</th><th>Why it does not come back from GoHighLevel</th></tr></thead>
+        <tbody>
+          <tr><td>Email</td><td>Before writing a new email into SmartMatch, the connector must be sure no other member already uses it. That needs an exact email search in SmartMatch, which is not verified yet.</td></tr>
+          <tr><td>Phone</td><td>Left out of the GoHighLevel to SmartMatch direction when its scope was set: SmartMatch stays the reference for phone numbers. It can be added later if Maclynn needs it.</td></tr>
+          <tr><td>Age</td><td>SmartMatch calculates it from the date of birth. To change it, change the date of birth.</td></tr>
+          <tr><td>Country</td><td>In SmartMatch the country is one part of the primary location. Writing it could change the other parts of the address.</td></tr>
+          <tr><td>Networking events, Ambassador newsletter, Currently single</td><td>SmartMatch stores these as tick boxes, a different format from the Yes / No answers the write check proved. They are sent to GoHighLevel, but edits in GoHighLevel stay there.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin:22px 0 8px">Never synced, and why</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Field</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Annual income (both fields)</td><td>Excluded from the connector by decision.</td></tr>
+          <tr><td>Gender of partner</td><td>It sits in the partner preferences, which the connector cannot read yet through a verified route.</td></tr>
+          <tr><td>Notes, partner preferences, private matchmaking details</td><td>They stay in SmartMatch only.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section>
@@ -176,16 +219,18 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 
   <section>
     <h2>How to test</h2>
-    <p class="note" style="margin-bottom:14px">Make changes only on the three TEST profiles. Write down the starting value before each change and put it back at the end. After each change, wait 2 to 4 minutes, then open and refresh the contact in the other system.</p>
+    <p class="note" style="margin-bottom:14px">Make changes only on the three TEST profiles. Write down the starting value before each change and put it back at the end. After each change, wait 2 to 4 minutes, then open and refresh the contact in the other system. Test only the eight fields that are on.</p>
+    <p class="note" style="margin-bottom:14px"><strong>Before you start:</strong> email is blocked today on the three TEST profiles, and the connector never reopens it. For the email tests (steps 2 to 4), set "marketing emails" to Yes in SmartMatch on TEST Connector One and Three, then ask Alexandra to reopen email (Email only) on those two in GoHighLevel. Do not use TEST Connector Two for email: it is on the SmartMatch unsubscribe list, so its email stays blocked whatever the answer (that is the rule working). At the end, set marketing emails back to No on One and Three.</p>
     <ol class="steps">
-      <li><div><h3>A SmartMatch change reaches GoHighLevel</h3><p>On a TEST profile, change the city or the Cupid Club answer in SmartMatch. GoHighLevel shows the new value.</p></div></li>
-      <li><div><h3>A SmartMatch No closes email</h3><p>On a TEST profile, set marketing emails to No in SmartMatch. Email becomes blocked in GoHighLevel (DND tab).</p></div></li>
-      <li><div><h3>A GoHighLevel unsubscribe reaches SmartMatch</h3><p>On a TEST profile with email open in GoHighLevel, block Email in the DND tab. SmartMatch marketing emails turns to No.</p></div></li>
-      <li><div><h3>Email is never reopened by itself</h3><p>After step 2 or 3, set SmartMatch back to Yes. Email stays blocked in GoHighLevel. That is expected: reopening is your decision.</p></div></li>
+      <li><div><h3>A SmartMatch change reaches GoHighLevel</h3><p>On TEST Connector One, change the city or the Cupid Club answer in SmartMatch. GoHighLevel shows the new value. Then put the old value back.</p></div></li>
+      <li><div><h3>A SmartMatch No closes email</h3><p>On TEST Connector Three, set marketing emails to No in SmartMatch. Email becomes blocked in GoHighLevel (DND tab).</p></div></li>
+      <li><div><h3>Email is never reopened by itself</h3><p>Still on TEST Connector Three, set marketing emails back to Yes in SmartMatch. Email stays blocked in GoHighLevel. That is expected: reopening is a decision of the team.</p></div></li>
+      <li><div><h3>A GoHighLevel unsubscribe reaches SmartMatch</h3><p>On TEST Connector One, block Email in the GoHighLevel DND tab. SmartMatch marketing emails turns to No.</p></div></li>
       <li><div><h3>Preference withdrawals reach GoHighLevel</h3><p>On TEST Connector One, set Cupid Club to No and clear the event types in SmartMatch. GoHighLevel shows No and an empty list. Then put the old answers back in SmartMatch.</p></div></li>
-      <li><div><h3>A GoHighLevel status reaches SmartMatch</h3><p>Give TEST Connector Two a profile status in SmartMatch (for example "Active Profile") and wait until GoHighLevel shows it. Then in GoHighLevel type another status exactly as SmartMatch spells it (for example "Inactive - Hold/Freeze"). SmartMatch follows. Set it back the same way.</p></div></li>
-      <li><div><h3>The rules fit Maclynn</h3><p>Do the fields, the consent rules and the closed channels match how Maclynn wants to use GoHighLevel? Tell Alexandra what to change.</p></div></li>
+      <li><div><h3>A GoHighLevel status reaches SmartMatch</h3><p>TEST Connector Two has no profile status. Give it one in SmartMatch (for example "Active Profile") and wait until GoHighLevel shows it. Then in GoHighLevel type another status exactly as SmartMatch spells it (for example "Inactive - Hold/Freeze"). SmartMatch follows. Then type the first status back in GoHighLevel. The status cannot be emptied again from GoHighLevel, so it stays on that test profile.</p></div></li>
+      <li><div><h3>The rules fit Maclynn</h3><p>Do the fields, the consent rules and the closed channels match how Maclynn wants to use GoHighLevel? Which optional fields, if any, should be switched on? Tell Alexandra.</p></div></li>
     </ol>
+    <p class="note" style="margin-top:14px">Do not test what is designed not to work: a GoHighLevel email change, a GoHighLevel Yes on a consent, an event type added in GoHighLevel, or a field that is switched off. Those stay in GoHighLevel by design.</p>
   </section>
 
   <section>
@@ -212,7 +257,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
       <li>A GoHighLevel unsubscribe turns SmartMatch marketing emails to No</li>
       <li>Cupid Club No and cleared event types in SmartMatch reach GoHighLevel</li>
       <li>A profile status typed in GoHighLevel reaches SmartMatch</li>
-      <li>The fields and rules fit how Maclynn wants to use GoHighLevel</li>
+      <li>The fields and rules fit how Maclynn wants to use GoHighLevel, and the optional fields to switch on are decided</li>
       <li>No duplicate, no message, no unexpected change</li>
     </ul>
     <p class="note" style="margin-top:14px">If something looks wrong, note the SmartMatch number, what you expected and what you saw, with the time. Do not send screenshots of real members. Send it to Alexandra.</p>
