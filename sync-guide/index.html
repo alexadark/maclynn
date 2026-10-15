@@ -29,7 +29,7 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
-main { max-width: 820px; margin: 0 auto; padding: 64px 16px 80px; display: grid; gap: 0; }
+main { max-width: 820px; margin: 0 auto; padding: 64px 16px 80px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
 h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.15; margin: 0; text-wrap: balance; }
 h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); letter-spacing: -0.02em; }
 h1 em { color: var(--accent); }
@@ -77,24 +77,25 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 <body>
 <main>
   <header>
-    <div class="kicker">Maclynn · Member sync · October 2026</div>
+    <div class="kicker">Maclynn · Member sync · Updated 15 October 2026</div>
     <h1>How the <em>member sync</em> works, and how to test it</h1>
-    <p class="lede">A guide for Alexa. What the connector does today, which contacts it keeps in step, and the checks to run before we add more members.</p>
+    <p class="lede">A guide for Alexa. The connector now keeps SmartMatch and GoHighLevel in step in both directions for 13 contacts. The technical checks are done. What is left is your business test.</p>
   </header>
 
   <section>
     <h2>In one minute</h2>
-    <div class="flow" role="img" aria-label="SmartMatch to connector to GoHighLevel, and unsubscribes back to SmartMatch">
+    <div class="flow" role="img" aria-label="SmartMatch and GoHighLevel kept in step both ways by the connector">
       <div class="box b1"><strong>SmartMatch</strong><span>The team works as usual. SmartMatch stays the source of truth.</span></div>
       <div class="arrow" aria-hidden="true">⇄</div>
-      <div class="box b2"><strong>Connector</strong><span>Runs on Maclynn's Cloudflare server, day and night. Checks every member every minute.</span></div>
+      <div class="box b2"><strong>Connector</strong><span>Runs on Maclynn's Cloudflare server, day and night. A pass every 2 minutes or so.</span></div>
       <div class="arrow" aria-hidden="true">⇄</div>
-      <div class="box b3"><strong>GoHighLevel</strong><span>Contacts are created and updated. An unsubscribe here is sent back to SmartMatch.</span></div>
+      <div class="box b3"><strong>GoHighLevel</strong><span>Contacts are created and updated. Edits made here go back to SmartMatch, within safe limits.</span></div>
     </div>
     <ul style="margin-top:18px">
-      <li><strong>SmartMatch → GoHighLevel:</strong> new members are created, changes follow within a few minutes.</li>
-      <li><strong>GoHighLevel → SmartMatch:</strong> only one thing goes back. When a member unsubscribes in GoHighLevel, "marketing emails" turns to No in SmartMatch. The connector never writes Yes, and never changes anything else in SmartMatch.</li>
-      <li>No laptop needs to be on. No messages are ever sent by the connector.</li>
+      <li><strong>Timing:</strong> a pass takes about a minute and a new one starts about every 2 minutes. A change shows in the other system within 2 to 4 minutes. Wait 5 minutes before you call a test failed.</li>
+      <li><strong>SmartMatch → GoHighLevel:</strong> every change of a synced field follows. New members are created.</li>
+      <li><strong>GoHighLevel → SmartMatch:</strong> edits follow too, with the limits below.</li>
+      <li>No laptop needs to be on. The connector never sends a message.</li>
     </ul>
   </section>
 
@@ -102,58 +103,72 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
     <h2>What moves across</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>In SmartMatch</th><th>In GoHighLevel</th></tr></thead>
+        <thead><tr><th>In SmartMatch</th><th>In GoHighLevel</th><th>From GoHighLevel back to SmartMatch</th></tr></thead>
         <tbody>
-          <tr><td>First name, last name, email, city</td><td>The contact's details</td></tr>
-          <tr><td>Would you like to receive marketing emails from Maclynn?</td><td>SmartMatch Email Marketing, and whether email is open</td></tr>
-          <tr><td>Would you like to be part of Cupid Club?</td><td>SmartMatch Cupid Club</td></tr>
-          <tr><td>Which type of events interest you most?</td><td>SmartMatch Event Types</td></tr>
-          <tr><td>Profile status</td><td>SmartMatch Profile Status</td></tr>
-          <tr><td>SmartMatch client number</td><td>SmartMatch Source ID, written <code>SM-12345</code></td></tr>
+          <tr><td>First name, last name, city</td><td>The contact's details</td><td>Yes. An empty field never erases SmartMatch</td></tr>
+          <tr><td>Email</td><td>The contact's email</td><td>Never. A GoHighLevel email change stays in GoHighLevel</td></tr>
+          <tr><td>Profile status</td><td>SmartMatch Profile Status</td><td>Yes, when the text is exactly one of SmartMatch's statuses</td></tr>
+          <tr><td>Would you like to receive marketing emails from Maclynn?</td><td>SmartMatch Email Marketing, and whether email is open</td><td>Only a No (an unsubscribe). Never a Yes</td></tr>
+          <tr><td>Would you like to be part of Cupid Club?</td><td>SmartMatch Cupid Club</td><td>Only a No. Never a Yes</td></tr>
+          <tr><td>Which type of events interest you most?</td><td>SmartMatch Event Types</td><td>Only a removal. An added type is not sent back</td></tr>
+          <tr><td>SmartMatch client number</td><td>SmartMatch Source ID, written <code>SM-12345</code></td><td>Links the two records</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note" style="margin-top:12px">Everything else stays in SmartMatch: income, notes, partner preferences, private matchmaking details.</p>
+    <p class="note" style="margin-top:12px">Everything else stays in SmartMatch: income, notes, partner preferences, private matchmaking details. More fields can be switched on later in the console (date of birth, occupation and others), after a decision with Alexandra.</p>
   </section>
 
   <section>
     <h2>The rules it always follows</h2>
     <ul class="rules">
       <li><span class="badge ok">Email</span><span>Email is open in GoHighLevel only when the member said Yes to marketing emails and is not on the SmartMatch unsubscribe list.</span></li>
-      <li><span class="badge stop">Said no</span><span>Otherwise the contact is Do Not Disturb on every channel.</span></li>
-      <li><span class="badge stop">Never reopens</span><span>Once a channel is blocked in GoHighLevel, the connector never reopens it. Only the team can, by hand, after checking with the member.</span></li>
+      <li><span class="badge stop">Said no</span><span>Otherwise email is blocked (Do Not Disturb).</span></li>
+      <li><span class="badge stop">Never reopens</span><span>The connector never reopens email in GoHighLevel. If SmartMatch goes back to Yes, reopening is a manual decision by the team.</span></li>
       <li><span class="badge stop">SMS · WhatsApp · Calls</span><span>Always blocked.</span></li>
-      <li><span class="badge ok">Preferences</span><span>Cupid Club and event types follow SmartMatch both ways (Yes or No), even while email is blocked.</span></li>
-      <li><span class="badge ok">One contact</span><span>Each member has one GoHighLevel contact, linked by the Source ID. If an email already exists in GoHighLevel without a Source ID, the connector waits for an admin to approve the link. It never creates a duplicate.</span></li>
-      <li><span class="badge stop">Deleted or archived</span><span>The contact is blocked in GoHighLevel. It is never deleted.</span></li>
-      <li><span class="badge stop">When unsure</span><span>The connector blocks and waits for an admin rather than guessing.</span></li>
+      <li><span class="badge ok">SmartMatch wins</span><span>If the same field is changed in both systems at the same moment, SmartMatch's value is kept and GoHighLevel is set back to it.</span></li>
+      <li><span class="badge ok">Consents</span><span>A No or a removed event type from either side is respected. A Yes only ever comes from SmartMatch.</span></li>
+      <li><span class="badge ok">One contact</span><span>Each member has one GoHighLevel contact, linked by the Source ID. The connector never creates a duplicate.</span></li>
+      <li><span class="badge stop">When unsure</span><span>The connector holds the field and shows a line in the console rather than guessing.</span></li>
     </ul>
   </section>
 
   <section>
+    <h2>Already verified on 15 October</h2>
+    <ul class="check">
+      <li>The 13 contacts exist once each in GoHighLevel, with their Source ID</li>
+      <li>The eight synced fields have the same values in both systems on all 13</li>
+      <li>Email is open on the 5 real members who said Yes, blocked on the 5 others and on the 3 test profiles</li>
+      <li>SMS, WhatsApp, calls and the other channels are blocked on all 13</li>
+      <li>GoHighLevel edits reach SmartMatch on TEST Connector One: city, last name, Cupid Club No, a removed event type. Nothing else changed</li>
+      <li>A GoHighLevel Yes on Cupid Club does not reach SmartMatch</li>
+      <li>When both systems changed the city during a pause, SmartMatch's value won</li>
+    </ul>
+    <p class="note" style="margin-top:14px">Every test profile was put back to its starting values afterwards.</p>
+  </section>
+
+  <section>
     <h2>Who is synced today</h2>
-    <p class="note" style="margin-bottom:14px">Only these 13 SmartMatch clients. Anyone else is ignored until the owner adds them.</p>
+    <p class="note" style="margin-bottom:14px">Only these 13 SmartMatch clients. Anyone else is ignored until we decide to add more.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Group</th><th>SmartMatch numbers</th><th>Use</th></tr></thead>
         <tbody>
           <tr><td>3 test profiles<br><span class="note">TEST Connector One, Two, Three</span></td><td>50373, 50374, 50375</td><td>Safe to change for tests.</td></tr>
-          <tr><td>10 real members<br><span class="note">picked at random on 12 Oct 2026</span></td><td>41163, 29228, 32222, 24092, 35719, 48706, 13114, 17585, 34223, 19016</td><td>Look only. Do not change them for a test.</td></tr>
+          <tr><td>10 real members<br><span class="note">picked at random on 12 Oct 2026</span></td><td>41163, 29228, 32222, 24092, 35719, 48706, 13114, 17585, 34223, 19016</td><td>Look only. Do not change them, in SmartMatch or in GoHighLevel.</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note" style="margin-top:12px">To find one in GoHighLevel: Contacts, search the name or email, and check that "SmartMatch Source ID" shows <code>SM-</code> followed by the number.</p>
   </section>
 
   <section>
-    <h2>How to sign in, and where to look</h2>
+    <h2>Where to look</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Tool</th><th>Address</th><th>Sign in</th><th>What you see</th></tr></thead>
         <tbody>
           <tr><td>GoHighLevel</td><td><a href="https://app.gohighlevel.com">app.gohighlevel.com</a>, location Maclynn</td><td>Your usual login</td><td>The contacts. Open a contact and refresh it: the contact list can show an older state for a few minutes.</td></tr>
           <tr><td>SmartMatch</td><td>Your usual SmartMatch address</td><td>Your usual login</td><td>The profiles, as usual.</td></tr>
-          <tr><td>Connector console<br><span class="note">optional</span></td><td><a href="https://connector.maclynninternational.com/member-sync">connector.maclynninternational.com/member-sync</a></td><td>Type <code>Alexandra@maclynninternational.com</code>, then the 6-digit code sent to that inbox. No password. Rachel signs in the same way with her own address.</td><td>The sync state and counts, with masked contacts. Look only: pause, stop and approvals are for the admin.</td></tr>
+          <tr><td>Connector console</td><td><a href="https://connector.maclynninternational.com/member-sync">connector.maclynninternational.com</a></td><td>Type <code>Alexandra@maclynninternational.com</code>, then the 6-digit code sent to that inbox. No password.</td><td>You are an administrator: sync state, counts, contacts, the Fields list, Pause and Resume. Agree with Alexandra before switching a field on.</td></tr>
         </tbody>
       </table>
     </div>
@@ -161,34 +176,54 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 
   <section>
     <h2>How to test</h2>
-    <p class="note" style="margin-bottom:14px">Already checked by Alexandra on 13 October: a city change on TEST Connector Two reached GoHighLevel within a minute. Make changes only on the three TEST profiles. After each change in SmartMatch, wait about three minutes, then open and refresh the contact in GoHighLevel.</p>
+    <p class="note" style="margin-bottom:14px">Make changes only on the three TEST profiles. Write down the starting value before each change and put it back at the end. After each change, wait 2 to 4 minutes, then open and refresh the contact in the other system.</p>
     <ol class="steps">
-      <li><div><h3>The 10 real members are there</h3><p>For each number in the list, find the contact in GoHighLevel. Check: one contact only, Source ID set, name, email, city and status match SmartMatch.</p></div></li>
-      <li><div><h3>Email follows consent</h3><p>For the same 10: if SmartMatch marketing emails is Yes, email is open in GoHighLevel. If it is No or empty, the contact is Do Not Disturb. SMS, WhatsApp and calls are blocked on all of them.</p></div></li>
-      <li><div><h3>A change follows</h3><p>On TEST Connector Two, change the city in SmartMatch and save. The new city appears in GoHighLevel.</p></div></li>
-      <li><div><h3>A preference follows, both ways</h3><p>On TEST Connector Two, set Cupid Club to No, then later back to Yes. GoHighLevel "SmartMatch Cupid Club" follows each time. Do the same with an event type.</p></div></li>
-      <li><div><h3>An unsubscribe in SmartMatch</h3><p>On TEST Connector Three (Alexandra reopens its email in GoHighLevel before your session), set marketing emails to No. The GoHighLevel contact becomes Do Not Disturb. Set it back to Yes: email stays blocked. That is expected.</p></div></li>
-      <li><div><h3>An unsubscribe in GoHighLevel</h3><p>Already checked on 13 October on TEST Connector Three: after Email was blocked in GoHighLevel, SmartMatch marketing emails turned to No within a minute. Nothing to do here.</p></div></li>
-      <li><div><h3>Nothing unexpected</h3><p>No new duplicate contact, no message sent, no other SmartMatch field changed.</p></div></li>
+      <li><div><h3>A SmartMatch change reaches GoHighLevel</h3><p>On a TEST profile, change the city or the Cupid Club answer in SmartMatch. GoHighLevel shows the new value.</p></div></li>
+      <li><div><h3>A SmartMatch No closes email</h3><p>On a TEST profile, set marketing emails to No in SmartMatch. Email becomes blocked in GoHighLevel (DND tab).</p></div></li>
+      <li><div><h3>A GoHighLevel unsubscribe reaches SmartMatch</h3><p>On a TEST profile with email open in GoHighLevel, block Email in the DND tab. SmartMatch marketing emails turns to No.</p></div></li>
+      <li><div><h3>Email is never reopened by itself</h3><p>After step 2 or 3, set SmartMatch back to Yes. Email stays blocked in GoHighLevel. That is expected: reopening is your decision.</p></div></li>
+      <li><div><h3>Preference withdrawals reach GoHighLevel</h3><p>On TEST Connector One, set Cupid Club to No and clear the event types in SmartMatch. GoHighLevel shows No and an empty list. Then put the old answers back in SmartMatch.</p></div></li>
+      <li><div><h3>A GoHighLevel status reaches SmartMatch</h3><p>Give TEST Connector Two a profile status in SmartMatch (for example "Active Profile") and wait until GoHighLevel shows it. Then in GoHighLevel type another status exactly as SmartMatch spells it (for example "Inactive - Hold/Freeze"). SmartMatch follows. Set it back the same way.</p></div></li>
+      <li><div><h3>The rules fit Maclynn</h3><p>Do the fields, the consent rules and the closed channels match how Maclynn wants to use GoHighLevel? Tell Alexandra what to change.</p></div></li>
     </ol>
+  </section>
+
+  <section>
+    <h2>Good to know</h2>
+    <ul class="rules">
+      <li><span class="badge stop">Real members</span><span>During the test, nobody edits the 10 real members in GoHighLevel: their GoHighLevel edits now reach SmartMatch too.</span></li>
+      <li><span class="badge stop">Same field, both sides</span><span>Do not change the same field in both systems within a few minutes. SmartMatch wins. After a pause, the console may not list such a field as "Changed in both systems" (a known display issue, the values are right): compare it by hand.</span></li>
+      <li><span class="badge ok">Clearing</span><span>Emptying a name or city in one system does not empty the other. To clear it, clear it in both.</span></li>
+      <li><span class="badge ok">Back to Yes</span><span>To turn Cupid Club or marketing emails back to Yes, change it in SmartMatch.</span></li>
+      <li><span class="badge ok">Status spelling</span><span>Profile status in GoHighLevel is free text. Type it exactly as in SmartMatch, or the console shows "GHL holds a value SmartMatch does not accept" and nothing is written.</span></li>
+      <li><span class="badge ok">Event types</span><span>Edit them in SmartMatch. In GoHighLevel the field holds codes such as <code>["2","3"]</code>: never type or import into it. If the console shows a problem on it, tell Alexandra.</span></li>
+      <li><span class="badge stop">Field names</span><span>Do not rename the GoHighLevel fields used by the connector (the ones starting with "SmartMatch").</span></li>
+      <li><span class="badge stop">Campaigns</span><span>Do not start a GoHighLevel campaign or workflow on these 13 contacts during the test.</span></li>
+      <li><span class="badge ok">Nothing arrived</span><span>After 5 minutes, check that the console does not show Paused or an emergency stop, then send Alexandra the profile and the time of your change.</span></li>
+      <li><span class="badge ok">A line in the console</span><span>"Write outcome unknown", "SmartMatch shows another value", "writes disabled" or "two contacts with the same email": tell Alexandra with the profile and the time.</span></li>
+    </ul>
   </section>
 
   <section>
     <h2>Your checklist</h2>
     <ul class="check">
-      <li>The 10 real members are in GoHighLevel, once each, with the right details</li>
-      <li>Email is open only for members who said Yes</li>
-      <li>SMS, WhatsApp and calls are blocked on every contact</li>
-      <li>A city change on a test profile shows up in GoHighLevel</li>
-      <li>Cupid Club and event types follow SmartMatch both ways</li>
-      <li>Marketing No in SmartMatch blocks the contact, and Yes does not reopen it</li>
+      <li>A SmartMatch change shows up in GoHighLevel</li>
+      <li>Marketing No in SmartMatch blocks email, and Yes does not reopen it</li>
       <li>A GoHighLevel unsubscribe turns SmartMatch marketing emails to No</li>
+      <li>Cupid Club No and cleared event types in SmartMatch reach GoHighLevel</li>
+      <li>A profile status typed in GoHighLevel reaches SmartMatch</li>
+      <li>The fields and rules fit how Maclynn wants to use GoHighLevel</li>
       <li>No duplicate, no message, no unexpected change</li>
     </ul>
     <p class="note" style="margin-top:14px">If something looks wrong, note the SmartMatch number, what you expected and what you saw, with the time. Do not send screenshots of real members. Send it to Alexandra.</p>
   </section>
 
-  <footer>Next steps after this test: open sign-in to every Maclynn staff member, then a small group of real members, checked together, before everyone.</footer>
+  <section>
+    <h2>Staff access, if needed</h2>
+    <p>The console can also open to the rest of the Maclynn team: each person signs in with their Maclynn address and a one-time code, and you choose their role (look only, operator or administrator). It is built and tested but not switched on, since you said only you need the console. Tell Alexandra if that changes.</p>
+  </section>
+
+  <footer>Next step after this test: a decision on adding more members, a small group first, checked together, before everyone.</footer>
 </main>
 </body>
 </html>
