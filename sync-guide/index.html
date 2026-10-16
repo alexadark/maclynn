@@ -77,7 +77,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 <body>
 <main>
   <header>
-    <div class="kicker">Maclynn · Member sync · Updated 15 October 2026</div>
+    <div class="kicker">Maclynn · Member sync · Updated 16 October 2026</div>
     <h1>How the <em>member sync</em> works, and how to test it</h1>
     <p class="lede">A guide for Alexa. The connector now keeps SmartMatch and GoHighLevel in step in both directions for 13 contacts. The technical checks are done. What is left is your business test.</p>
   </header>
@@ -92,7 +92,8 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
       <div class="box b3"><strong>GoHighLevel</strong><span>Contacts are created and updated. Edits made here go back to SmartMatch, within safe limits.</span></div>
     </div>
     <ul style="margin-top:18px">
-      <li><strong>Timing:</strong> a pass takes about a minute and a new one starts every 2 to 5 minutes. A change shows in the other system within 2 to 5 minutes. Wait 10 minutes before you call a test failed.</li>
+      <li><strong>Timing:</strong> a pass takes about a minute and a new one starts every 2 to 5 minutes. Today a change shows in the other system within 2 to 5 minutes. Wait 10 minutes before you call a test failed.</li>
+      <li><strong>Faster from SmartMatch, once the webhook is registered:</strong> the connector is ready to receive SmartMatch's change notices. Once you register the webhook in SmartMatch (Alexandra will send you the address and the secret), a SmartMatch change reaches GoHighLevel in about 15 seconds. GoHighLevel → SmartMatch stays at 2 to 5 minutes.</li>
       <li><strong>SmartMatch → GoHighLevel:</strong> every change of a synced field follows. New members are created.</li>
       <li><strong>GoHighLevel → SmartMatch:</strong> edits follow too, with the limits below.</li>
       <li>No laptop needs to be on. The connector never sends a message.</li>
