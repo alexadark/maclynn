@@ -77,7 +77,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 <body>
 <main>
   <header>
-    <div class="kicker">Maclynn · Member sync · Updated 16 October 2026</div>
+    <div class="kicker">Maclynn · Member sync · Updated 18 October 2026</div>
     <h1>How the <em>member sync</em> works, and how to test it</h1>
     <p class="lede">A guide for Alexa. The connector now keeps SmartMatch and GoHighLevel in step in both directions for 13 contacts. The technical checks are done. What is left is your business test.</p>
   </header>
@@ -87,13 +87,14 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
     <div class="flow" role="img" aria-label="SmartMatch and GoHighLevel kept in step both ways by the connector">
       <div class="box b1"><strong>SmartMatch</strong><span>The team works as usual. SmartMatch stays the source of truth.</span></div>
       <div class="arrow" aria-hidden="true">⇄</div>
-      <div class="box b2"><strong>Connector</strong><span>Runs on Maclynn's Cloudflare server, day and night. A pass every few minutes.</span></div>
+      <div class="box b2"><strong>Connector</strong><span>Runs on Maclynn's Cloudflare server, day and night. Hears about GoHighLevel changes at once, and checks everything every minute.</span></div>
       <div class="arrow" aria-hidden="true">⇄</div>
       <div class="box b3"><strong>GoHighLevel</strong><span>Contacts are created and updated. Edits made here go back to SmartMatch, within safe limits.</span></div>
     </div>
     <ul style="margin-top:18px">
-      <li><strong>Timing:</strong> a pass takes about a minute and a new one starts every 2 to 5 minutes. Today a change shows in the other system within 2 to 5 minutes. Wait 10 minutes before you call a test failed.</li>
-      <li><strong>Faster from SmartMatch, once the webhook is registered:</strong> the connector is ready to receive SmartMatch's change notices. Once you register the webhook in SmartMatch (Alexandra will send you the address and the secret), a SmartMatch change reaches GoHighLevel in about 15 seconds. GoHighLevel → SmartMatch stays at 2 to 5 minutes.</li>
+      <li><strong>GoHighLevel → SmartMatch: about 15 seconds.</strong> GoHighLevel tells the connector as soon as a contact changes (since 18 October).</li>
+      <li><strong>SmartMatch → GoHighLevel: 1 to 2 minutes today, about 15 seconds once the SmartMatch webhook is registered.</strong> Alexandra sends you the address and the secret; the connector is ready.</li>
+      <li><strong>Safety net:</strong> a full pass every minute catches anything a notice missed. Wait 5 minutes before you call a test failed.</li>
       <li><strong>SmartMatch → GoHighLevel:</strong> every change of a synced field follows. New members are created.</li>
       <li><strong>GoHighLevel → SmartMatch:</strong> edits follow too, with the limits below.</li>
       <li>No laptop needs to be on. The connector never sends a message.</li>
@@ -121,7 +122,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 
   <section>
     <h2>Every field you can choose</h2>
-    <p style="margin-bottom:14px">The eight fields above are on today: Mia's short list, agreed at the start. Other fields can be switched on in the console, under Fields. Switching one on sends it to GoHighLevel for all 13 contacts, the 10 real members included, so it is a decision to take with Alexandra first. Switching it off later stops future updates but does not remove what was already sent. A field that is off is not synced at all, so there is nothing to test on it.</p>
+    <p style="margin-bottom:14px">The eight fields above are on today: Mia's short list, agreed at the start. Other fields can be switched on in the console, under Fields. A field switched on syncs both ways wherever it can; only the few below never come back from GoHighLevel. Switching one on sends it to GoHighLevel for all 13 contacts, the 10 real members included, so it is a decision to take with Alexandra first. Switching it off later stops future updates but does not remove what was already sent. A field that is off is not synced at all, so there is nothing to test on it.</p>
     <h3 style="margin-bottom:8px">Both ways, once switched on</h3>
     <div class="table-wrap">
       <table>
@@ -131,7 +132,9 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
           <tr><td>Date of birth</td><td>Date</td><td>Sensitive</td></tr>
           <tr><td>Ambassador status, Employment status, Profile matchability</td><td>Choice</td><td>Not sensitive</td></tr>
           <tr><td>Gender, Relationship status, Children, Desire for more children, Estimated wealth</td><td>Choice</td><td>Sensitive: switch on only for a clear business use</td></tr>
-          <tr><td>Singles events</td><td>Yes / No</td><td>A consent: only a No comes back from GoHighLevel</td></tr>
+          <tr><td>Phone</td><td>Text</td><td>From GoHighLevel, only an international number (starting with +) is sent; anything else shows as a problem in the console</td></tr>
+          <tr><td>Singles events, Networking events, Ambassador newsletter</td><td>Yes / No</td><td>Consents: only a No comes back from GoHighLevel</td></tr>
+          <tr><td>Currently single</td><td>Yes / No</td><td>Sensitive. Both Yes and No come back</td></tr>
         </tbody>
       </table>
     </div>
@@ -142,10 +145,8 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
         <thead><tr><th>Field</th><th>Why it does not come back from GoHighLevel</th></tr></thead>
         <tbody>
           <tr><td>Email</td><td>Before writing a new email into SmartMatch, the connector must be sure no other member already uses it. That needs an exact email search in SmartMatch, which is not verified yet.</td></tr>
-          <tr><td>Phone</td><td>Left out of the GoHighLevel to SmartMatch direction when its scope was set: SmartMatch stays the reference for phone numbers. It can be added later if Maclynn needs it.</td></tr>
           <tr><td>Age</td><td>SmartMatch calculates it from the date of birth. To change it, change the date of birth.</td></tr>
           <tr><td>Country</td><td>In SmartMatch the country is one part of the primary location. Writing it could change the other parts of the address.</td></tr>
-          <tr><td>Networking events, Ambassador newsletter, Currently single</td><td>SmartMatch stores these as tick boxes, a different format from the Yes / No answers the write check proved. They are sent to GoHighLevel, but edits in GoHighLevel stay there.</td></tr>
         </tbody>
       </table>
     </div>
@@ -188,6 +189,12 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
       <li>When both systems changed the city during a pause, SmartMatch's value won</li>
       <li>Later that evening, on the TEST profiles: a SmartMatch city change reached GoHighLevel; a SmartMatch No blocked email and a Yes did not reopen it; an email block in GoHighLevel turned SmartMatch to No; Cupid Club No and cleared event types reached GoHighLevel; a profile status typed in GoHighLevel reached SmartMatch</li>
     </ul>
+    <h3 style="margin:22px 0 8px">Added on 16 and 18 October</h3>
+    <ul class="check">
+      <li>Fixed: a GoHighLevel edit could wait a long time before reaching SmartMatch (your city test of 16 October). It now goes on the next pass</li>
+      <li>GoHighLevel change notices: a city change in GoHighLevel on TEST Connector One reached SmartMatch in 15 seconds, and London back in 14 seconds, with nothing else changed</li>
+      <li>Phone, Networking events, Ambassador newsletter and Currently single now sync both ways once switched on (SmartMatch write check passed on the TEST profile)</li>
+    </ul>
     <p class="note" style="margin-top:14px">Every test profile was put back afterwards. TEST Connector One and Three are ready for the email tests (marketing emails Yes, email open in GoHighLevel), and TEST Connector Two now has the status Active Profile. You can repeat any of these tests.</p>
   </section>
 
@@ -221,7 +228,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
 
   <section>
     <h2>How to test</h2>
-    <p class="note" style="margin-bottom:14px">Make changes only on the three TEST profiles. Write down the starting value before each change and put it back at the end. After each change, wait 2 to 5 minutes, then open and refresh the contact in the other system. Test only the eight fields that are on.</p>
+    <p class="note" style="margin-bottom:14px">Make changes only on the three TEST profiles. Write down the starting value before each change and put it back at the end. After each change, wait a minute (GoHighLevel → SmartMatch is usually about 15 seconds), then open and refresh the contact in the other system. Test only the fields that are on.</p>
     <p class="note" style="margin-bottom:14px"><strong>Before you start:</strong> email is blocked today on the three TEST profiles, and the connector never reopens it. For the email tests (steps 2 to 4), TEST Connector One and Three are already prepared: marketing emails Yes in SmartMatch and email open in GoHighLevel. If you need to prepare them again, set marketing emails to Yes in SmartMatch, then ask Alexandra to reopen email (Email only) in GoHighLevel. Do not use TEST Connector Two for email: it is on the SmartMatch unsubscribe list, so its email stays blocked whatever the answer (that is the rule working). At the end, set marketing emails back to No on One and Three.</p>
     <ol class="steps">
       <li><div><h3>A SmartMatch change reaches GoHighLevel</h3><p>On TEST Connector One, change the city or the Cupid Club answer in SmartMatch. GoHighLevel shows the new value. Then put the old value back.</p></div></li>
@@ -230,6 +237,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
       <li><div><h3>A GoHighLevel unsubscribe reaches SmartMatch</h3><p>On TEST Connector One, block Email in the GoHighLevel DND tab. SmartMatch marketing emails turns to No.</p></div></li>
       <li><div><h3>Preference withdrawals reach GoHighLevel</h3><p>On TEST Connector One, set Cupid Club to No and clear the event types in SmartMatch. GoHighLevel shows No and an empty list. Then put the old answers back in SmartMatch.</p></div></li>
       <li><div><h3>A GoHighLevel status reaches SmartMatch</h3><p>TEST Connector Two now has the status Active Profile in both systems. In GoHighLevel, type another status exactly as SmartMatch spells it (for example "Inactive - Hold/Freeze"). SmartMatch follows. Then type Active Profile back in GoHighLevel.</p></div></li>
+      <li><div><h3>A GoHighLevel edit reaches SmartMatch in seconds</h3><p>On TEST Connector One, change the city in GoHighLevel. SmartMatch shows it within a minute, usually about 15 seconds. Then put London back in GoHighLevel.</p></div></li>
       <li><div><h3>The rules fit Maclynn</h3><p>Do the fields, the consent rules and the closed channels match how Maclynn wants to use GoHighLevel? Which optional fields, if any, should be switched on? Tell Alexandra.</p></div></li>
     </ol>
     <p class="note" style="margin-top:14px">Do not test what is designed not to work: a GoHighLevel email change, a GoHighLevel Yes on a consent, an event type added in GoHighLevel, or a field that is switched off. Those stay in GoHighLevel by design.</p>
@@ -246,7 +254,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
       <li><span class="badge ok">Event types</span><span>Edit them in SmartMatch. In GoHighLevel the field holds codes such as <code>["2","3"]</code>: never type or import into it. If the console shows a problem on it, tell Alexandra.</span></li>
       <li><span class="badge stop">Field names</span><span>Do not rename the GoHighLevel fields used by the connector (the ones starting with "SmartMatch").</span></li>
       <li><span class="badge stop">Campaigns</span><span>Do not start a GoHighLevel campaign or workflow on these 13 contacts during the test.</span></li>
-      <li><span class="badge ok">Nothing arrived</span><span>After 10 minutes, check that the console does not show Paused or an emergency stop, then send Alexandra the profile and the time of your change.</span></li>
+      <li><span class="badge ok">Nothing arrived</span><span>After 5 minutes, check that the console does not show Paused or an emergency stop, then send Alexandra the profile and the time of your change.</span></li>
       <li><span class="badge ok">A line in the console</span><span>"Write outcome unknown", "SmartMatch shows another value", "writes disabled" or "two contacts with the same email": tell Alexandra with the profile and the time.</span></li>
     </ul>
   </section>
@@ -255,6 +263,7 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--li
     <h2>Your checklist</h2>
     <ul class="check">
       <li>A SmartMatch change shows up in GoHighLevel</li>
+      <li>A GoHighLevel city change shows up in SmartMatch within a minute</li>
       <li>Marketing No in SmartMatch blocks email, and Yes does not reopen it</li>
       <li>A GoHighLevel unsubscribe turns SmartMatch marketing emails to No</li>
       <li>Cupid Club No and cleared event types in SmartMatch reach GoHighLevel</li>
