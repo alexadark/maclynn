@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test run: from meeting notes to a signed agreement</title>
+<style>
+  :root { --ink:#2b2621; --muted:#6b6257; --gold:#a8874f; --cream:#f8f3ea; --line:#e4d9c6; --warn:#8c3b2f; --ok:#3d6b3a; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.6; background:#fff; margin:0 auto; max-width: 760px; padding: 24px 16px 56px; font-size: 17px; }
+  h1 { font-size: 34px; font-weight: normal; margin: 0 0 8px; line-height: 1.2; }
+  h2 { font-size: 22px; font-weight: normal; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 40px 0 14px; }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+  .cover { background: var(--cream); padding: 30px 26px; border-left: 4px solid var(--gold); margin-bottom: 20px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--gold); margin-bottom: 10px; }
+  .sub { color: var(--muted); font-size: 17px; margin: 0; }
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps > li { counter-increment: s; background: var(--cream); border: 1px solid var(--line); padding: 12px 16px; margin-bottom: 10px; }
+  .steps > li h3 { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: normal; }
+  .steps > li h3::before { content: counter(s) ". "; color: var(--gold); }
+  .who { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 4px; }
+  .say { background: #fff; border-left: 3px solid var(--gold); padding: 8px 12px; margin: 8px 0; font-style: italic; }
+  .check { color: var(--ok); }
+  .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
+  .warn { border-left-color: var(--warn); }
+  .small { font-size: 14px; color: var(--muted); }
+  .back { font-size: 14px; margin-bottom: 18px; }
+</style>
+</head>
+<body>
+<p class="back"><a href="../">All Maclynn documents</a></p>
+<div class="cover">
+  <div class="eyebrow">Maclynn International · 27 October 2026</div>
+  <h1>Test run: from meeting notes to a signed agreement</h1>
+  <p class="sub">The step-by-step walkthrough for today's demo. Follow along in your own Claude app: each step gives the sentence to type and what you should see. Prepared by Alexandra Spalato for Rachel, Alexa and Tori.</p>
+</div>
+
+<p class="note warn"><b>This is a test.</b> Everything runs in test mode with a made-up client, Clara Whitfield. BoldSign only sends to Alexandra's test address, and HighLevel only updates the contact called TEST. Nothing reaches a real client, and nothing signed today has legal effect.</p>
+
+<h2>Before we start</h2>
+<ol>
+  <li>Open the <b>Claude desktop app</b> and sign in with your Maclynn account.</li>
+  <li>Switch to <b>Cowork</b> and choose a working folder, for example a new folder called <i>Maclynn test</i> on your desktop.</li>
+  <li>In a new task, type <b>/</b> and check you can see the <b>maclynn-sales</b> skills: <i>meeting-notes</i>, <i>proposal</i> and <i>agreement</i>.</li>
+  <li>Click the <b>+</b> button, then <b>Connectors</b>, and check <b>Maclynn Signature</b> is switched on.</li>
+</ol>
+<p>If something's missing, say so straight away and we'll fix it before going further.</p>
+
+<h2>The walkthrough</h2>
+<ol class="steps">
+  <li>
+    <div class="who">Everyone</div>
+    <h3>Write up the meeting</h3>
+    <p>Normally you'd start from a Granola recording or your own notes. Today we use the fictional meeting that comes with the plugin.</p>
+    <p class="say">Write up the meeting with Clara Whitfield, using the Clara Whitfield example from the maclynn-sales plugin.</p>
+    <p class="check">You should see: structured notes (Career, Background, Dating and relationships, What she's looking for, Deal points) and a short list of the deal facts.</p>
+  </li>
+  <li>
+    <div class="who">Everyone</div>
+    <h3>Draft the proposal</h3>
+    <p class="say">Draft Clara's proposal.</p>
+    <p>Claude first shows the commercial lines: £32,000, director-led search, 6 months active, 6 months hold, matchmaker Imogen Clarke. It writes nothing until you confirm.</p>
+    <p class="say">Yes, that's right.</p>
+    <p class="check">You should see: a five-page PDF in Rachel's design, women's variant, and a summary of what Claude used and left out. The private detail about Clara's parent must not appear.</p>
+  </li>
+  <li>
+    <div class="who">Everyone</div>
+    <h3>Ask for a change</h3>
+    <p>Try a real-life tweak so you see how revisions work.</p>
+    <p class="say">Clara would like to start in early December instead. Update the proposal.</p>
+    <p class="check">You should see: a version 2 of the proposal with the new start date, the fee unchanged.</p>
+  </li>
+  <li>
+    <div class="who">Everyone</div>
+    <h3>Prepare the agreement</h3>
+    <p class="say">Clara has agreed to proposal v2. Prepare her Private Membership Agreement.</p>
+    <p>Claude asks two things. Use the test details Alexandra gives on the call, never a real client's:</p>
+    <ul>
+      <li>the client's email, for BoldSign;</li>
+      <li>who countersigns for Maclynn.</li>
+    </ul>
+    <p class="check">You should see: a 13-page agreement and a check report. <b>READY</b> means the terms and conditions are word for word the reference version and every figure matches the proposal. <b>NEEDS RACHEL</b> lists what Rachel has to approve first.</p>
+  </li>
+  <li>
+    <div class="who">Alexandra, on the shared screen</div>
+    <h3>Send it for signature</h3>
+    <p>Only one person sends during the test, since BoldSign accepts only the test address. Watch this step on the shared screen.</p>
+    <p class="say">Send Clara's agreement for signature.</p>
+    <p>Claude asks for the HighLevel contact, opportunity and matchmaker to update. It never guesses them. Then it uploads the PDF and sends it.</p>
+    <p class="check">You should see: a confirmation with a document number, the signing order (client first, then Maclynn) and the mode <i>sandbox</i>.</p>
+  </li>
+  <li>
+    <div class="who">Alexandra, on the shared screen</div>
+    <h3>The client signs</h3>
+    <p>The BoldSign email arrives. The client opens it, fills in their details on page 6 (name, address, country, postcode, mobile, email, date of birth), then signs and dates page 7.</p>
+    <p class="check">You should see: the countersigner gets their email automatically once the client has signed.</p>
+  </li>
+  <li>
+    <div class="who">Alexandra, on the shared screen</div>
+    <h3>Maclynn countersigns</h3>
+    <p>The countersigner opens their email and signs. That completes the agreement.</p>
+  </li>
+  <li>
+    <div class="who">Everyone</div>
+    <h3>Follow up from Claude</h3>
+    <p class="say">Where does Clara Whitfield's agreement stand?</p>
+    <p class="check">You should see: <i>Completed</i>, both signatures done, and three HighLevel updates confirmed.</p>
+  </li>
+  <li>
+    <div class="who">Everyone, in HighLevel</div>
+    <h3>Check HighLevel</h3>
+    <ul>
+      <li>The <b>TEST</b> opportunity has moved to <b>Won</b>.</li>
+      <li>A note starting <i>Signed agreement</i> links to the signed PDF.</li>
+      <li>A <i>Start matchmaking</i> task is waiting for the matchmaker.</li>
+    </ul>
+    <p>Nobody touched HighLevel by hand.</p>
+  </li>
+</ol>
+
+<h2>Good to know</h2>
+<ul>
+  <li>Claude never sends anything unless you say so in the conversation, and only after a READY check.</li>
+  <li>The terms and conditions are never rewritten for one client. A request to change them becomes a special condition that Rachel approves in writing.</li>
+  <li>If something looks wrong in a PDF, tell Claude in plain words ("the fee box is cut off"): it fixes it and shows you the new version.</li>
+</ul>
+
+<h2>Before real clients</h2>
+<ol>
+  <li>Rachel's approved contract files (UK, New York, Los Angeles, the Private Membership Agreement and the Terms &amp; Conditions) added to the contracts project. The UK terms used today are a provisional version.</li>
+  <li>The Maclynn countersigner and the default matchmaker for the follow-up task decided.</li>
+  <li>Rachel's go-ahead, then Alexandra switches BoldSign from test to live.</li>
+</ol>
+
+<p class="small">Prepared by Alexandra Spalato · 27 October 2026 · Tested end to end on 26 October 2026 in test mode.</p>
+</body>
+</html>
