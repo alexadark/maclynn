@@ -26,6 +26,8 @@
   .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
   .warn { border-left-color: var(--warn); }
   .small { font-size: 14px; color: var(--muted); }
+  pre { background: var(--cream); border: 1px solid var(--line); padding: 12px 14px; white-space: pre-wrap; font-size: 14px; font-family: Menlo, monospace; max-height: 340px; overflow: auto; }
+  button { font: inherit; font-size: 14px; background: var(--gold); color: #fff; border: 0; padding: 6px 14px; cursor: pointer; }
   .back { font-size: 14px; margin-bottom: 18px; }
 </style>
 </head>
@@ -33,103 +35,81 @@
 <p class="back"><a href="../">All Maclynn documents</a></p>
 <div class="cover">
   <div class="eyebrow">Maclynn International · 27 October 2026</div>
-  <h1>Test run: from meeting notes to a signed agreement</h1>
-  <p class="sub">The step-by-step walkthrough for today's demo. Follow along in your own Claude app: each step gives the sentence to type and what you should see. Prepared by Alexandra Spalato for Rachel, Alexa and Tori.</p>
+  <h1>Test run: from a first call to a signed agreement</h1>
+  <p class="sub">Today you play a Maclynn salesperson looking after a new client, Clara Whitfield. Follow along in your own Claude app: each step gives the sentence to type and what you should see. Prepared by Alexandra Spalato for Rachel, Alexa and Tori.</p>
 </div>
 
-<p class="note warn"><b>This is a test.</b> Everything runs in test mode with a made-up client, Clara Whitfield. BoldSign only sends to Alexandra's test address, and HighLevel only updates the contact called TEST. Nothing reaches a real client, and nothing signed today has legal effect.</p>
+<p class="note warn"><b>This is a test.</b> Clara is made up. BoldSign only sends to Alexandra's test address, and HighLevel only updates the contact called TEST. Nothing reaches a real client and nothing signed today has legal effect.</p>
 
 <h2>Before we start</h2>
 <ol>
-  <li>Open the <b>Claude desktop app</b> and sign in with your Maclynn account.</li>
-  <li>Switch to <b>Cowork</b> and choose a working folder, for example a new folder called <i>Maclynn test</i> on your desktop.</li>
-  <li>In a new task, type <b>/</b> and check you can see the <b>maclynn-sales</b> skills: <i>meeting-notes</i>, <i>proposal</i> and <i>agreement</i>.</li>
-  <li>Click the <b>+</b> button, then <b>Connectors</b>, and check <b>Maclynn Signature</b> is switched on.</li>
+  <li>Open the <b>Claude desktop app</b>, signed in with your Maclynn account.</li>
+  <li>Click <b>Cowork</b>, then start a <b>new task</b>. No folder needed.</li>
+  <li>Click <b>+</b>, then <b>Connectors</b>, and check <b>Maclynn Signature</b> is on.</li>
 </ol>
-<p>If something's missing, say so straight away and we'll fix it before going further.</p>
+<p>Do every step in that same task, one message after another, as you would with a real client.</p>
 
-<h2>The walkthrough</h2>
+<h2>Your notes from the call</h2>
+<p>This is what you'd have after the first call with Clara. Click <b>Copy</b>: you'll paste it in step 1.</p>
+<p><button onclick="navigator.clipboard.writeText(document.getElementById('notes').innerText);this.textContent='Copied'">Copy</button></p>
+<pre id="notes">Call with Clara Whitfield (TEST)
+16 October 2026 · Zoom · Recorded with consent
+Attendees: Clara Whitfield, Tori (Maclynn)
+
+Career
+- Partner at an architecture practice in Edinburgh, leads its cultural buildings work.
+- Just won a competition for a concert hall in Bergen. **Travels to Norway every month.**
+
+Background
+- 39, grew up in Cape Town, moved to the UK at 18. Studied at the Glasgow School of Art.
+- Swims in the sea all year round with a group of friends. Plays cello in an amateur orchestra.
+- **Ran the Edinburgh Marathon dressed as the Forth Bridge, for charity.**
+
+Dating and relationships
+- Long relationship in her early thirties, ended when he moved abroad. Single for two years.
+- Her schedule leaves no time to meet anyone outside architecture.
+- Private: a parent&#x27;s health is worrying her at the moment. Not for the proposal.
+
+What she&#x27;s looking for
+- Someone kind, confident and settled in himself, with a life of his own.
+- &quot;A partner, not a project.&quot;
+- Aged 38 to 50. Edinburgh or London, happy with someone who travels.
+- Open to him having children from a previous relationship.
+
+Any other information
+- Prefers email, then a call.
+
+Deal points
+- Director-led search, £32,000, 6 months active, 6 months hold.
+- Matchmaking Director: Imogen Clarke.
+- Search focus: Edinburgh and London, open to the rest of the UK.
+- Wants to start straight away: onboarding in November, active from late November 2026.</pre>
+
+<h2>Looking after Clara, step by step</h2>
 <ol class="steps">
-  <li>
-    <div class="who">Everyone</div>
-    <h3>Write up the meeting</h3>
-    <p>Normally you'd start from a Granola recording or your own notes. Today we use the fictional meeting that comes with the plugin.</p>
-    <p class="say">Write up the meeting with Clara Whitfield, using the Clara Whitfield example from the maclynn-sales plugin.</p>
-    <p class="check">You should see: structured notes (Career, Background, Dating and relationships, What she's looking for, Deal points) and a short list of the deal facts.</p>
-  </li>
-  <li>
-    <div class="who">Everyone</div>
-    <h3>Draft the proposal</h3>
-    <p class="say">Draft Clara's proposal.</p>
-    <p>Claude first shows the commercial lines: £32,000, director-led search, 6 months active, 6 months hold, matchmaker Imogen Clarke. It writes nothing until you confirm.</p>
-    <p class="say">Yes, that's right.</p>
-    <p class="check">You should see: a five-page PDF in Rachel's design, women's variant, and a summary of what Claude used and left out. The private detail about Clara's parent must not appear.</p>
-  </li>
-  <li>
-    <div class="who">Everyone</div>
-    <h3>Ask for a change</h3>
-    <p>Try a real-life tweak so you see how revisions work.</p>
-    <p class="say">Clara would like to start in early December instead. Update the proposal.</p>
-    <p class="check">You should see: a version 2 of the proposal with the new start date, the fee unchanged.</p>
-  </li>
-  <li>
-    <div class="who">Everyone</div>
-    <h3>Prepare the agreement</h3>
-    <p class="say">Clara has agreed to proposal v2. Prepare her Private Membership Agreement.</p>
-    <p>Claude asks two things. Use the test details Alexandra gives on the call, never a real client's:</p>
-    <ul>
-      <li>the client's email, for BoldSign;</li>
-      <li>who countersigns for Maclynn.</li>
-    </ul>
-    <p class="check">You should see: a 13-page agreement and a check report. <b>READY</b> means the terms and conditions are word for word the reference version and every figure matches the proposal. <b>NEEDS RACHEL</b> lists what Rachel has to approve first.</p>
-  </li>
-  <li>
-    <div class="who">Alexandra, on the shared screen</div>
-    <h3>Send it for signature</h3>
-    <p>Only one person sends during the test, since BoldSign accepts only the test address. Watch this step on the shared screen.</p>
-    <p class="say">Send Clara's agreement for signature.</p>
-    <p>Claude asks for the HighLevel contact, opportunity and matchmaker to update. It never guesses them. Then it uploads the PDF and sends it.</p>
-    <p class="check">You should see: a confirmation with a document number, the signing order (client first, then Maclynn) and the mode <i>sandbox</i>.</p>
-  </li>
-  <li>
-    <div class="who">Alexandra, on the shared screen</div>
-    <h3>The client signs</h3>
-    <p>The BoldSign email arrives. The client opens it, fills in their details on page 6 (name, address, country, postcode, mobile, email, date of birth), then signs and dates page 7.</p>
-    <p class="check">You should see: the countersigner gets their email automatically once the client has signed.</p>
-  </li>
-  <li>
-    <div class="who">Alexandra, on the shared screen</div>
-    <h3>Maclynn countersigns</h3>
-    <p>The countersigner opens their email and signs. That completes the agreement.</p>
-  </li>
-  <li>
-    <div class="who">Everyone</div>
-    <h3>Follow up from Claude</h3>
-    <p class="say">Where does Clara Whitfield's agreement stand?</p>
-    <p class="check">You should see: <i>Completed</i>, both signatures done, and three HighLevel updates confirmed.</p>
-  </li>
-  <li>
-    <div class="who">Everyone, in HighLevel</div>
-    <h3>Check HighLevel</h3>
-    <ul>
-      <li>The <b>TEST</b> opportunity has moved to <b>Won</b>.</li>
-      <li>A note starting <i>Signed agreement</i> links to the signed PDF.</li>
-      <li>A <i>Start matchmaking</i> task is waiting for the matchmaker.</li>
-    </ul>
-    <p>Nobody touched HighLevel by hand.</p>
-  </li>
+<li><div class="who">You</div><h3>Hand Claude your meeting notes</h3><p>You've just finished a call with a new lead. Paste your notes, exactly as Granola or your notebook gave them.</p><p class="say">Here are my notes from today's call with Clara Whitfield. Can you write them up?<br>[paste the notes]</p><p class="check">You should see: your notes tidied under the usual headings, and the deal points Claude picked up. It may ask for your title, email and phone for the proposal.</p></li>
+<li><div class="who">You</div><h3>Ask for the proposal</h3><p class="say">Prepare Clara's proposal.</p><p>Claude first lists the commercial lines (fee, months, hold, start, matchmaker). Check them, then:</p><p class="say">Yes, that's right.</p><p class="check">You should see: a five-page proposal in Rachel's design. The private note about Clara's parent isn't in it.</p></li>
+<li><div class="who">You</div><h3>Clara sends feedback</h3><p>Clara has read the proposal and replies by email. Pass her request on, in your own words.</p><p class="say">Clara loves it. She'd like to start in early December instead, so she can finish the Bergen project first.</p><p class="check">You should see: a version 2 with the new dates. The fee hasn't moved.</p></li>
+<li><div class="who">You</div><h3>Clara says yes: prepare the contract</h3><p class="say">Clara has accepted proposal v2. Prepare her Private Membership Agreement.</p><p>Claude asks for Clara's email and who countersigns for Maclynn. In this test, Alexandra pastes the test details.</p><p class="check">You should see: a 13-page agreement and a check report saying <b>READY</b>: the terms and conditions are word for word the reference version, and every figure matches the proposal.</p></li>
+<li><div class="who">You</div><h3>Clara asks for a change to the contract</h3><p class="say">Clara asks whether she can pay in two instalments: half on signing, half three months later.</p><p class="check">You should see: the check now says <b>NEEDS RACHEL</b>. A payment split goes beyond the standard terms, so Claude won't send until Rachel agrees.</p></li>
+<li><div class="who">Rachel</div><h3>Rachel approves</h3><p class="say">Rachel approves the two instalments.</p><p class="check">You should see: <b>READY</b> again, with the approval recorded in the agreement file.</p></li>
+<li><div class="who">Alexandra, on the shared screen</div><h3>Send it for signature</h3><p>Only one person sends during the test, since BoldSign accepts only the test address.</p><p class="say">Send Clara's agreement for signature.</p><p>Claude asks which HighLevel contact, opportunity and matchmaker to update; it never guesses. Alexandra pastes the test details.</p><p class="check">You should see: a document number, the signing order (Clara first, then Maclynn) and the mode <i>sandbox</i>.</p></li>
+<li><div class="who">Alexandra, on the shared screen</div><h3>Clara signs</h3><p>The BoldSign email arrives. Clara fills in her details on page 6, then signs and dates page 7. The countersigner then gets their own email.</p></li>
+<li><div class="who">Alexandra, on the shared screen</div><h3>Maclynn countersigns</h3><p>The countersigner signs. The agreement is complete.</p></li>
+<li><div class="who">Everyone</div><h3>Check where it stands</h3><p class="say">Where does Clara Whitfield's agreement stand?</p><p class="check">You should see: <i>Completed</i>, both signatures, and three HighLevel updates confirmed.</p></li>
+<li><div class="who">Everyone, in HighLevel</div><h3>Look in HighLevel</h3><ul><li>The <b>TEST</b> opportunity has moved to <b>Won</b>.</li><li>A note starting <i>Signed agreement</i> links to the signed PDF.</li><li>A <i>Start matchmaking</i> task is waiting for the matchmaker.</li></ul><p>Nobody touched HighLevel by hand.</p></li>
 </ol>
 
 <h2>Good to know</h2>
 <ul>
-  <li>Claude never sends anything unless you say so in the conversation, and only after a READY check.</li>
-  <li>The terms and conditions are never rewritten for one client. A request to change them becomes a special condition that Rachel approves in writing.</li>
-  <li>If something looks wrong in a PDF, tell Claude in plain words ("the fee box is cut off"): it fixes it and shows you the new version.</li>
+  <li>Claude never sends anything unless you say so, and only after a READY check.</li>
+  <li>The terms and conditions are never rewritten for one client. Anything outside the standard goes to Rachel first.</li>
+  <li>If something looks wrong in a PDF, say it plainly ("the fee box is cut off"). Claude fixes it and shows you the new version.</li>
 </ul>
 
 <h2>Before real clients</h2>
 <ol>
-  <li>Rachel's approved contract files (UK, New York, Los Angeles, the Private Membership Agreement and the Terms &amp; Conditions) added to the contracts project. The UK terms used today are a provisional version.</li>
+  <li>Rachel's approved contract files (UK, New York, Los Angeles, the Private Membership Agreement and the Terms &amp; Conditions). The UK terms used today are provisional.</li>
   <li>The Maclynn countersigner and the default matchmaker for the follow-up task decided.</li>
   <li>Rachel's go-ahead, then Alexandra switches BoldSign from test to live.</li>
 </ol>
