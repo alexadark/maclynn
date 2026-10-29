@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Changing your designs in Claude | Maclynn</title><style>
+  :root { --ink:#2b2621; --muted:#6b6257; --gold:#a8874f; --cream:#f8f3ea; --line:#e4d9c6; --warn:#8c3b2f; --ok:#3d6b3a; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.6; background:#fff; margin:0 auto; max-width: 760px; padding: 24px 16px 56px; font-size: 20px; }
+  h1 { font-size: 34px; font-weight: normal; margin: 0 0 8px; line-height: 1.2; }
+  h2 { font-size: 22px; font-weight: normal; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 40px 0 14px; }
+  h3 { font-size: 16px; margin: 22px 0 6px; color: var(--gold); }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+  .cover { background: var(--cream); padding: 30px 26px; border-left: 4px solid var(--gold); margin-bottom: 20px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--gold); margin-bottom: 10px; }
+  .sub { color: var(--muted); font-size: 17px; margin: 0; }
+  .lede { font-size: 19px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 18px; }
+  @media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--cream); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px; }
+  .card .n { font-size: 26px; display: block; }
+  .card p { margin: 0; font-size: 15px; color: var(--muted); }
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--cream); border: 1px solid var(--line); padding: 12px 16px; margin-bottom: 10px; }
+  .steps li h3 { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: normal; }
+  .steps li h3::before { content: counter(s) ". "; color: var(--gold); }
+  .who { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 4px; }
+  .steps li p { margin: 0; }
+  .table-wrap { overflow-x: auto; margin: 10px 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+  th { text-align: left; background: var(--cream); border-bottom: 1px solid var(--gold); padding: 7px 8px; }
+  td { border-bottom: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+  .yes { color: var(--ok); }
+  .no { color: var(--warn); }
+  .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
+  .small { font-size: 14px; color: var(--muted); }
+  .back { font-size: 14px; margin-bottom: 18px; }
+  nav { display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin: 0 0 8px; font-size:16px; }
+  button { font: inherit; font-size:15px; color: var(--ink); background: var(--cream); border:1px solid var(--gold); padding:6px 12px; cursor:pointer; }
+  section { scroll-margin-top:16px; }
+  input[type=checkbox] { width:18px; height:18px; accent-color: var(--gold); vertical-align:-3px; margin-right:6px; }
+  a:visited { color: var(--gold); }
+  @media print { nav, button { display:none; } body { font-size: 12pt; } }
+  .c { text-align:center; width:56px; font-size:20px; }
+  .yes,.no,.todo { font-weight:bold; }
+  .todo { color: var(--gold); }
+  table { font-size: 18px; min-width: 0; }
+  td:first-child { width: 40%; font-weight: bold; }
+  li { margin-bottom: 10px; }
+  label { display:block; margin-bottom: 8px; }
+
+  .ex { background: var(--cream); border-left: 3px solid var(--gold); padding: 8px 14px; margin: 6px 0 10px; font-style: italic; }
+</style></head><body><p class="back"><a href="../">All Maclynn documents</a></p>
+<div class="cover"><h1>Changing your designs in Claude</h1><p class="sub">The design system and the proposal have moved out of Claude Design · 29 October 2026</p></div>
+<nav><a href="#where">Where they are</a><a href="#change">Make a change</a><a href="#toolkit">Sales toolkit</a><a href="#keep">Keep in mind</a><button onclick="window.print()">Print</button></nav>
+
+<section id="where"><h2>1. Where your designs are now</h2>
+<p class="lede">The Maclynn Brand Design System and the Maclynn proposal are now in Claude, on the <b>Artifacts</b> page. You can stop using Claude Design (<span class="path">claude.ai/design</span>): the copies there are read-only, and the site closes on 14 December 2026.</p>
+<div class="table-wrap"><table><tbody>
+<tr><td>Maclynn proposal</td><td>Claude → Artifacts → Maclynn proposal.</td></tr>
+<tr><td>Maclynn Brand Design System</td><td>Artifacts page → Claude Design menu → View design systems. It opens in Settings; click its name. It's shared with everyone at Maclynn and set as the default.</td></tr>
+</tbody></table></div></section>
+
+<section id="change"><h2>2. Make a change</h2>
+<h3>The proposal, or any design</h3>
+<p>Open it from Artifacts, then pick the way that suits the change:</p>
+<ul>
+<li><b>Chat</b> for anything broad.</li>
+<li><b>Comments</b> on one element for a precise change.</li>
+<li><b>Direct edits</b> on the page for small visual tweaks.</li>
+</ul>
+<div class="ex">"On page 2, make the quote larger and move the photo to the right."</div>
+<div class="ex">"Use the Beige Stone background on the matchmaker page."</div>
+<p>There's no version history. Before a big change, ask Claude to keep the current version first:</p>
+<div class="ex">"Save what we have, then try a version with the fee on its own page."</div>
+
+<h3>The design system</h3>
+<p>Its page can't be edited by hand yet. Open a chat and ask Claude for the change; it updates the design system for everyone.</p>
+<div class="ex">"In the Maclynn design system, add this new photo to the imagery and use it for the proposal cover."</div>
+
+<h3>A new document</h3>
+<p>Start a design or a slide deck in Claude and choose the Maclynn design system from the design system menu. It's already the default.</p></section>
+
+<section id="toolkit"><h2>3. How changes reach the sales toolkit</h2>
+<p>The sales toolkit keeps its own copy of the proposal design, so that every proposal and agreement comes out the same, and the check can read every page before an agreement goes for signature. A change you make in Artifacts doesn't reach it on its own.</p>
+<ol class="steps">
+<li><h3>You change the design in Artifacts</h3><p>Until it looks the way you want.</p></li>
+<li><h3>You send me the link</h3><p>With one line on what changed.</p></li>
+<li><h3>I update the toolkit</h3><p>And send you a sample proposal and agreement as PDFs to check before the team uses it.</p></li>
+</ol>
+<p>The agreement has no separate design. It's the agreed proposal, followed by the client's details, the Acceptance statements, the signatures and the Terms and Conditions. A change to the proposal design changes the agreement too.</p>
+<p>The Terms and Conditions work the same way: once your lawyer has approved them, send me the Word file or a text PDF and I'll publish them in the toolkit.</p></section>
+
+<section id="keep"><h2>4. Keep in mind</h2>
+<ul>
+<li><b>Open them now and then.</b> An artifact nobody opens for your organisation's retention period can be deleted. Opening or editing it resets the clock.</li>
+<li><b>Old chats and comments stay behind.</b> They weren't moved. If you need anything from them, copy it before 14 December.</li>
+<li><b>Other Claude Design projects</b>, such as the Maclynn presentation template: tell me and I'll move them before 14 December.</li>
+</ul>
+<p class="small">Source: Claude Help Centre, "Move from standalone Claude Design to Claude" (<a href="https://support.claude.com/en/articles/17440474">support.claude.com/en/articles/17440474</a>).</p></section>
+</body></html>
