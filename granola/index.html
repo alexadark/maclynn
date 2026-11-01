@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How Granola works with Maclynn | Maclynn</title><style>
+  :root { --ink:#2b2621; --muted:#6b6257; --gold:#a8874f; --cream:#f8f3ea; --line:#e4d9c6; --warn:#8c3b2f; --ok:#3d6b3a; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.6; background:#fff; margin:0 auto; max-width: 760px; padding: 24px 16px 56px; font-size: 20px; }
+  h1 { font-size: 34px; font-weight: normal; margin: 0 0 8px; line-height: 1.2; }
+  h2 { font-size: 22px; font-weight: normal; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 40px 0 14px; }
+  h3 { font-size: 16px; margin: 22px 0 6px; color: var(--gold); }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+  .cover { background: var(--cream); padding: 30px 26px; border-left: 4px solid var(--gold); margin-bottom: 20px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--gold); margin-bottom: 10px; }
+  .sub { color: var(--muted); font-size: 17px; margin: 0; }
+  .lede { font-size: 19px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 18px; }
+  @media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--cream); border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 14px 16px; }
+  .card .n { font-size: 26px; display: block; }
+  .card p { margin: 0; font-size: 15px; color: var(--muted); }
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--cream); border: 1px solid var(--line); padding: 12px 16px; margin-bottom: 10px; }
+  .steps li h3 { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: normal; }
+  .steps li h3::before { content: counter(s) ". "; color: var(--gold); }
+  .who { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 4px; }
+  .steps li p { margin: 0; }
+  .table-wrap { overflow-x: auto; margin: 10px 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+  th { text-align: left; background: var(--cream); border-bottom: 1px solid var(--gold); padding: 7px 8px; }
+  td { border-bottom: 1px solid var(--line); padding: 7px 8px; vertical-align: top; }
+  .yes { color: var(--ok); }
+  .no { color: var(--warn); }
+  .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
+  .small { font-size: 14px; color: var(--muted); }
+  .back { font-size: 14px; margin-bottom: 18px; }
+  nav { display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin: 0 0 8px; font-size:16px; }
+  button { font: inherit; font-size:15px; color: var(--ink); background: var(--cream); border:1px solid var(--gold); padding:6px 12px; cursor:pointer; }
+  section { scroll-margin-top:16px; }
+  input[type=checkbox] { width:18px; height:18px; accent-color: var(--gold); vertical-align:-3px; margin-right:6px; }
+  a:visited { color: var(--gold); }
+  @media print { nav, button { display:none; } body { font-size: 12pt; } }
+  .c { text-align:center; width:56px; font-size:20px; }
+  .yes,.no,.todo { font-weight:bold; }
+  .todo { color: var(--gold); }
+  table { font-size: 18px; min-width: 0; }
+  td:first-child { width: 40%; font-weight: bold; }
+  li { margin-bottom: 10px; }
+  label { display:block; margin-bottom: 8px; }
+
+  .ex { background: var(--cream); border-left: 3px solid var(--gold); padding: 8px 14px; margin: 6px 0 10px; font-style: italic; }
+
+  .flow { display:grid; grid-template-columns: 1fr; gap: 0; margin: 18px 0 22px; }
+  .row { display:flex; gap:10px; align-items:stretch; flex-wrap:wrap; }
+  .box { flex:1; min-width:150px; background: var(--cream); border:1px solid var(--line); border-top:3px solid var(--gold); padding:10px 12px; font-size:16px; }
+  .box b { display:block; font-size:17px; font-weight:normal; color: var(--ink); }
+  .box span { color: var(--muted); font-size:14px; }
+  .box.dark { background: var(--ink); color:#fff; border-color: var(--ink); }
+  .box.dark b, .box.dark span { color:#fff; }
+  .arrow { text-align:center; color: var(--gold); font-size:24px; line-height:1; padding:6px 0; }
+  .tag { display:inline-block; font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color: var(--gold); border:1px solid var(--gold); padding:1px 6px; margin-bottom:4px; }
+  .path { font-family: Menlo, monospace; font-size: 15px; }
+</style></head><body><p class="back"><a href="../">All Maclynn documents</a></p>
+<div class="cover"><div class="eyebrow">Sales workflow</div><h1>How Granola works with Maclynn</h1><p class="sub">From a client meeting to notes, a proposal and an updated HighLevel, including Tory's own notes · 1 November 2026</p></div>
+<nav><a href="#glance">At a glance</a><a href="#notes">Three kinds of notes</a><a href="#meeting">Each meeting</a><a href="#setup">One-time setup</a><a href="#private">Privacy</a><a href="#cost">Cost</a><button onclick="window.print()">Print</button></nav>
+
+<section id="glance"><h2>1. At a glance</h2>
+<p class="lede">Granola records the meeting. Claude writes it up in Tory's format, with her own impressions kept word for word. Tory checks the notes, then the proposal and the agreement follow as today. The notes are also filed on the client's HighLevel contact automatically.</p>
+<div class="flow">
+  <div class="row">
+    <div class="box"><span class="tag">In the meeting</span><b>Granola records</b><span>Zoom, Teams or in person, with the client's consent</span></div>
+    <div class="box"><span class="tag">In the meeting</span><b>Tory types her impressions</b><span>In the Granola window, next to the live transcript</span></div>
+    <div class="box"><span class="tag">No recording</span><b>Handwritten notes</b><span>When the client declines, Tory writes by hand as today</span></div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="row">
+    <div class="box"><b>Saved in the "Sales calls" space</b><span>A shared Granola space that the Maclynn tools can read. Personal notes stay private.</span></div>
+    <div class="box"><b>Photo sent in Claude</b><span>Tory takes a photo of the page and adds it to the chat</span></div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="row"><div class="box dark"><b>Claude writes the meeting notes</b><span>Tory's headings, the client's own words, her impressions word for word, then the questions only she can answer</span></div></div>
+  <div class="arrow">↓</div>
+  <div class="row">
+    <div class="box"><span class="tag">Tory</span><b>Checks and corrects</b><span>Nothing goes further until she's happy</span></div>
+    <div class="box"><span class="tag">Claude</span><b>Proposal, then agreement</b><span>As in the test run, with BoldSign for signing</span></div>
+    <div class="box"><span class="tag">Automatic</span><b>HighLevel updated</b><span>The meeting notes are filed on the client's contact</span></div>
+  </div>
+</div>
+</section>
+
+<section id="notes"><h2>2. Three kinds of notes, one result</h2>
+<div class="cards">
+  <div class="card"><span class="n">Transcript</span><p>Granola's recording of the whole conversation. Claude takes the facts and the client's exact words from it, and never adds anything that wasn't said.</p></div>
+  <div class="card"><span class="n">Typed notes</span><p>What Tory types in Granola during the call: how the client came across, reservations, her feeling about the fit. Claude keeps these word for word as her impressions.</p></div>
+  <div class="card"><span class="n">Handwritten</span><p>When there's no recording, or for impressions jotted down after the meeting. A photo in Claude is enough: it transcribes the page first and shows Tory what it read.</p></div>
+</div>
+<div class="note">Tory's impressions are never mixed with the transcript. In the notes they appear on their own lines, starting "Salesperson's impression:", exactly as she wrote them. The more she types during the call, the fewer questions Claude asks afterwards.</div>
+</section>
+
+<section id="meeting"><h2>3. Each meeting, step by step</h2>
+<ol class="steps">
+<li><div class="who">Tory · before the call</div><h3>Ask for consent and start Granola</h3><p>If the client says no, don't record. Take handwritten notes instead.</p></li>
+<li><div class="who">Tory · during the call</div><h3>Type impressions in Granola</h3><p>A few words are enough. Granola keeps them with the transcript.</p></li>
+<li><div class="who">Tory · after the call</div><h3>Put the note in "Sales calls"</h3><p>That's what lets Claude and HighLevel see it. Notes left in a personal folder stay private and can't be read.</p></li>
+<li><div class="who">Tory · in Claude</div><h3>Ask for the write-up</h3><p>Claude finds the meeting in Granola by the client's name or the date. For handwritten notes, add the photo to the chat.</p>
+<div class="ex">"Write up my meeting with Oliver Ashdown from this morning."</div>
+<div class="ex">"Here are my handwritten notes from my meeting with Clara Whitfield. Write them up."</div></li>
+<li><div class="who">Tory · in Claude</div><h3>Check the notes and answer the questions</h3><p>Claude checks for anything missing or assumed and asks only what the transcript and her notes don't cover.</p></li>
+<li><div class="who">Automatic</div><h3>HighLevel gets the notes</h3><p>Once Tory has approved them, the notes are filed on the client's contact. Lines marked private stay out of the proposal.</p></li>
+</ol>
+</section>
+
+<section id="setup"><h2>4. One-time setup</h2>
+<div class="table-wrap"><table><tbody>
+<tr><td>Rachel</td><td>
+<label><input type="checkbox" checked disabled>Set up Granola and invite Alexa and Tory</label>
+<label><input type="checkbox" disabled>Move the workspace to the Business plan, needed for the connection</label>
+<label><input type="checkbox" disabled>Create a space called "Sales calls" and leave "Allow Granola API access" switched on (it's on by default)</label>
+<label><input type="checkbox" disabled>Create a workspace API key (Settings → Connectors → Workspace API keys, admins only) and send it to Alexandra through a secure channel, not by email</label>
+<label><input type="checkbox" disabled>Share one test note with Alexandra, which doesn't add a paid seat</label>
+</td></tr>
+<tr><td>Alexandra</td><td>
+<label><input type="checkbox" disabled>Connect the key to the Maclynn connector, so nobody has to handle it in Claude</label>
+<label><input type="checkbox" disabled>Let Claude find a meeting and its transcript from the sales toolkit</label>
+<label><input type="checkbox" disabled>File approved notes on the HighLevel contact</label>
+<label><input type="checkbox" disabled>Test on one real meeting with Tory and compare with her own notes</label>
+</td></tr>
+<tr><td>Everyone (optional)</td><td>Granola also has its own connector in Claude, so each person can ask questions about their meetings in a chat. It isn't needed for the sales workflow.</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="private"><h2>5. What stays private</h2>
+<ul>
+<li>The key only reads the "Sales calls" space and other spaces where API access is on. Personal notes and private folders are never read.</li>
+<li>Anything sensitive (health, family, money, a named ex, anything said in confidence) is marked private in the notes and never reaches a proposal.</li>
+<li>Meeting notes stay in Claude and HighLevel. They're never sent by email or message.</li>
+</ul>
+</section>
+
+<section id="cost"><h2>6. Cost</h2>
+<div class="table-wrap"><table><tbody>
+<tr><td>Business plan</td><td>$14 per user per month. Every active member of the workspace is a paid seat. It includes the connection the sales workflow needs.</td></tr>
+<tr><td>Free plan</td><td>30 days of meeting history and no connection for the tools, so it can't feed the sales workflow.</td></tr>
+<tr><td>Sharing a single note</td><td>Free: it doesn't add anyone to the workspace.</td></tr>
+</tbody></table></div>
+<p class="small">Source: Granola's pricing and help pages, checked on 1 November 2026.</p>
+</section>
+</body></html>
