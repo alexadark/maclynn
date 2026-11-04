@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your first real client with Claude</title>
+<style>
+  :root { --ink:#2b2621; --muted:#6b6257; --gold:#a8874f; --cream:#f8f3ea; --line:#e4d9c6; --warn:#8c3b2f; --ok:#3d6b3a; }
+  body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); line-height: 1.6; background:#fff; margin:0 auto; max-width: 760px; padding: 24px 16px 56px; font-size: 17px; }
+  h1 { font-size: 34px; font-weight: normal; margin: 0 0 8px; line-height: 1.2; }
+  h2 { font-size: 22px; font-weight: normal; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 40px 0 14px; }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+  .cover { background: var(--cream); padding: 30px 26px; border-left: 4px solid var(--gold); margin-bottom: 20px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: var(--gold); margin-bottom: 10px; }
+  .sub { color: var(--muted); font-size: 17px; margin: 0; }
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps > li { counter-increment: s; background: var(--cream); border: 1px solid var(--line); padding: 12px 16px; margin-bottom: 10px; }
+  .steps > li h3 { margin: 0 0 4px; color: var(--ink); font-size: 18px; font-weight: normal; }
+  .steps > li h3::before { content: counter(s) ". "; color: var(--gold); }
+  .who { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 4px; }
+  .say { background: #fff; border-left: 3px solid var(--gold); padding: 8px 12px; margin: 8px 0; font-style: italic; }
+  .check { color: var(--ok); }
+  .note { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0 16px; }
+  .warn { border-left-color: var(--warn); }
+  .small { font-size: 14px; color: var(--muted); }
+  pre { background: var(--cream); border: 1px solid var(--line); padding: 12px 14px; white-space: pre-wrap; font-size: 14px; font-family: Menlo, monospace; max-height: 340px; overflow: auto; }
+  button { font: inherit; font-size: 14px; background: var(--gold); color: #fff; border: 0; padding: 6px 14px; cursor: pointer; }
+  .back { font-size: 14px; margin-bottom: 18px; }
+</style>
+
+</head>
+<body>
+<p class="back"><a href="../">All Maclynn documents</a></p>
+<div class="cover">
+  <div class="eyebrow">Maclynn International · 4 November 2026</div>
+  <h1>Your first real client with Claude</h1>
+  <p class="sub">From yesterday's consultation to a proposal you're happy with, then the agreement. Tory drives on her own screen; each step gives the sentence to type and what you should see. Prepared by Alexandra Spalato for Tory and Rachel.</p>
+</div>
+
+<div class="note warn"><b>This is a real client.</b> Claude never sends anything to a client. You read everything first, and you send the proposal yourself. The electronic signature isn't part of today: BoldSign stays in test mode until Rachel gives her go-ahead.</div>
+
+<h2>Before we start</h2>
+<ul>
+  <li>Open the <b>Claude desktop app</b>, signed in with your Maclynn account.</li>
+  <li>Click <b>Cowork</b>, then start a <b>new task</b>. Choose <b>Sonnet</b> as the model.</li>
+  <li>Click <b>+</b>, then <b>Connectors</b>, and check <b>Maclynn Signature</b> is on. That's what lets Claude read your Granola notes.</li>
+  <li>Keep one task for each client, and do every step for that client in the same task.</li>
+</ul>
+
+<h2>Put the meeting in "Sales calls"</h2>
+<p>Claude can only read meetings in the Granola space called <b>Sales calls</b>. Personal notes stay private.</p>
+<ol>
+  <li>Open Granola and find yesterday's meeting. Press <b>⌘S</b> if you can't see the sidebar.</li>
+  <li>Click <b>Add to folder</b> and choose <b>Sales calls</b>, or a folder inside it. You can also drag the note there in the sidebar.</li>
+  <li>If you don't see Sales calls, you need adding to the space. Rachel can do that in Granola under <b>Settings &gt; Spaces</b>.</li>
+</ol>
+<p class="small">A meeting appears once Granola has finished its transcript and summary.</p>
+
+<h2>From the meeting to the agreement</h2>
+<ol class="steps">
+<li><div class="who">Tory</div><h3>Ask for the write-up</h3>
+<p class="say">Write up my meeting with [client's name] from yesterday. I'm Tory.</p>
+<p class="check">You should see: your notes under your usual headings, your impressions word for word, and the questions only you can answer.</p>
+<p class="small">If Claude can't find the meeting, or your typed notes are missing, paste them into the chat. You can also paste the transcript from Granola, or add a photo of handwritten notes.</p></li>
+
+<li><div class="who">Tory</div><h3>Check the notes</h3>
+<p>Answer Claude's questions and correct anything in plain words. Anything sensitive, such as health, family or a past relationship, stays private and out of the proposal: say so if Claude hasn't marked it.</p>
+<p class="say">That's right, the notes are good.</p></li>
+
+<li><div class="who">Tory</div><h3>Ask for the proposal</h3>
+<p class="say">Prepare [first name]'s proposal.</p>
+<p class="check">You should see: a short brief first (pain points, criteria, quotes, how to position it), with the commercial lines to confirm: fee, months, hold, start and matchmaker.</p>
+<p>Correct what's wrong, then:</p>
+<p class="say">Yes, that's right.</p>
+<p class="check">You should see: the proposal as a PDF in Rachel's design, with the logo, images and matchmaker's photo.</p></li>
+
+<li><div class="who">Tory</div><h3>Change anything you like</h3>
+<p>Say it the way you'd tell a colleague:</p>
+<p class="say">Make the opening warmer, and mention the Christmas hold.</p>
+<p class="small">If something looks wrong in the PDF, say it plainly, such as "the fee box is cut off". Claude fixes it and shows you the new version.</p></li>
+
+<li><div class="who">Tory</div><h3>Send the proposal yourself</h3>
+<p>When you're happy, download the PDF and email it to the client as you do today. Your own proposals don't need another approver.</p></li>
+
+<li><div class="who">Tory, when the client replies</div><h3>Pass on their changes</h3>
+<p>Go back to the same task:</p>
+<p class="say">[First name] would like to start in early December. Prepare version 2.</p>
+<p class="check">You should see: a version 2 with the change, and nothing else moved.</p></li>
+
+<li><div class="who">Tory, when the client accepts</div><h3>Prepare the agreement</h3>
+<p class="say">[First name] accepted proposal v2. Prepare the Private Membership Agreement.</p>
+<p>Claude shows you the terms it will use. Check them, then reply <i>Yes, that's right.</i></p>
+<p class="check">You should see: the full agreement as a PDF, and a check report.</p></li>
+
+<li><div class="who">Tory</div><h3>Read the check report</h3>
+<ul>
+  <li><b>READY:</b> the Terms and Conditions match the reference word for word, and every figure matches the proposal.</li>
+  <li><b>NEEDS RACHEL:</b> a request touches the Terms and Conditions, or the wording is risky. Rachel decides in writing.</li>
+  <li><b>NEEDS APPROVAL:</b> an approval or a negotiated point is still open. Claude tells you which.</li>
+  <li><b>BLOCKED:</b> something has to be fixed first. Claude says what.</li>
+</ul></li>
+
+<li><div class="who">Not yet</div><h3>Signature</h3>
+<p>Sending through BoldSign comes once Rachel has given her go-ahead for live use. The client also needs a contact and an opportunity in HighLevel first. Alexandra will confirm the next step for this client.</p></li>
+</ol>
+
+<h2>Your next consultations</h2>
+<ol>
+  <li><b>Before the call:</b> ask for the client's consent to record. If they say no, don't record, and take handwritten notes.</li>
+  <li><b>When the call starts:</b> open Granola and click the meeting in your upcoming meetings. That starts the note. Check it's transcribing.</li>
+  <li><b>During the call:</b> type your impressions in the Granola window. A few words are enough.</li>
+  <li><b>After the call:</b> put the note in <b>Sales calls</b>, then start a new Cowork task for that client.</li>
+</ol>
+
+<div class="note"><b>Good to know.</b> Claude takes facts and quotes from the transcript and never adds anything that wasn't said. The Terms and Conditions are never rewritten for one client. Anything outside the standard goes to the right person first.</div>
+
+<p class="small">Prepared by Alexandra Spalato · 4 November 2026 · More detail in <a href="../granola/">How Granola works with Maclynn</a>.</p>
+</body>
+</html>
